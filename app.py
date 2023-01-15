@@ -36,7 +36,7 @@ MENU = {
 def main():
     menu_data = [
         {'icon': "bi bi-bar-chart-line-fill", 'label':"Explore"},  #no tooltip message
-        {'icon': "fas fa-desktop",'label':"Monitor"},
+        {'icon': "bi bi-display",'label':"Monitor"},
         {'icon': "far fa-copy", 'label':"Documentation"},
         {'icon': "fas fa-info-circle", 'label':"About"}, 
     ]
