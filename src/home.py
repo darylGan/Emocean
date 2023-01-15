@@ -137,9 +137,9 @@ def app():
     # with col4:
     #     st.write("")
     
-    st.markdown('<h1 style="font-weight:10;font-size: 50px;font-family:Source Sans Pro, sans-serif;text-align:center;">Long Covid Emotion Analyzer</h1>',unsafe_allow_html=True)
+    st.markdown('<h1 style="font-weight:10;font-size: 50px;font-family:Source Sans Pro, sans-serif;text-align:center;">Sentiment & Emotion Flood Detection through Twitter</h1>',unsafe_allow_html=True)
     space(2)
-    # Long Covid Emotion Analyzer
+    # Sentiment & Emotion Flood Detection through Twitter
     # space(1)
     #st.write("***")
     col_1, col_2, col_3 = st.columns([1,8,1])
@@ -148,12 +148,12 @@ def app():
         st.write()
     
     with col_2:
-        st.subheader("Emotion Analyzer In Text")
+        st.subheader("Text Emotion Analyzer")
         space(1)
-        st.markdown("**Instructions:** Type in your text")
+        st.markdown("**Instructions:** Type in some text")
 
         with st.form(key='emotion_form'):
-            raw_text = st.text_area('Type Here',"Long Covid brings lots of negative and bad effect to the patient. I feel sorry to those who are suffering from Long Covid symptoms")
+            raw_text = st.text_area('Type Here',"Remove These Words")
             cleanDocx = cleantext(raw_text)
             submit_text = st.form_submit_button(label='Analyze')
 
