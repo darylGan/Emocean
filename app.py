@@ -35,7 +35,7 @@ MENU = {
 
 def main():
     menu_data = [
-        {'icon': "far fa-chart-bar", 'label':"Exploratory Data Analysis"},  #no tooltip message
+        {'icon': "bi bi-bar-chart-line-fill", 'label':"Explore"},  #no tooltip message
         {'icon': "fas fa-desktop",'label':"Monitor"},
         {'icon': "far fa-copy", 'label':"Documentation"},
         {'icon': "fas fa-info-circle", 'label':"About"}, 
@@ -48,7 +48,7 @@ def main():
         home_name='Home',
         hide_streamlit_markers=False,
         sticky_nav=True,
-        sticky_mode='jumpy',
+        sticky_mode='pinned',
     )
 
     menu = MENU[menu_id]
