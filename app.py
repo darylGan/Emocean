@@ -22,10 +22,8 @@ import utils.display as udisp
 # import your app modules here
 from src import home, dataVisualization, monitor, documentation, about
 
-
 import hydralit_components as hc
 import datetime
-
 
 MENU = {
     "Home" : home,
@@ -33,14 +31,11 @@ MENU = {
     "Monitor" : monitor,
     "Documentation" : documentation,
     "About" : about,
-    
 }
 
 def main():
-    
-    # specify the primary menu definition
     menu_data = [
-        {'icon': "far fa-chart-bar", 'label':"Exploratory Data Analysis"},#no tooltip message
+        {'icon': "far fa-chart-bar", 'label':"Exploratory Data Analysis"},  #no tooltip message
         {'icon': "fas fa-desktop",'label':"Monitor"},
         {'icon': "far fa-copy", 'label':"Documentation"},
         {'icon': "fas fa-info-circle", 'label':"About"}, 
@@ -58,16 +53,10 @@ def main():
         sticky_mode='pinned', #jumpy or not-jumpy, but sticky or pinned
     )
 
-    
-    # st.sidebar.title("Navigate yourself...")
-    # menu_selection = st.sidebar.radio("Menu", list(MENU.keys()))
-
     menu = MENU[menu_id]
     menu_selection = menu_id
     with st.spinner(f"Loading {menu_id} ..."):
         udisp.render_page(menu)
-
-
 
 if __name__ == '__main__':
     main()
