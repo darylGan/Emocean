@@ -41,7 +41,7 @@ def main():
         {'icon': "fas fa-info-circle", 'label':"About"}, 
     ]
 
-    over_theme = {'txc_inactive': '#FFFFFF','menu_background':'#A7C7E7'}
+    over_theme = {'txc_inactive':'#FFFFFF','menu_background':'#A7C7E7','txc_active':'yellow','option_active':'blue'}
     menu_id = hc.nav_bar(
         menu_definition=menu_data,
         override_theme=over_theme,
