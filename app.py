@@ -1,3 +1,6 @@
+import hydralit_components as hc
+import datetime
+
 import streamlit as st
 from PIL import Image
 img = Image.open("images/logo.png")
@@ -19,11 +22,8 @@ st.markdown(hide_streamlit_style, unsafe_allow_html=True)
 import streamlit.components.v1 as components
 from track_utils import create_emotionclf_table
 import utils.display as udisp
-# import your app modules here
-from src import home, dataVisualization, monitor, documentation, about
 
-import hydralit_components as hc
-import datetime
+from src import home, dataVisualization, monitor, documentation, about
 
 MENU = {
     "Home" : home,
@@ -41,16 +41,14 @@ def main():
         {'icon': "fas fa-info-circle", 'label':"About"}, 
     ]
 
-    #create_emotionclf_table()
-
-    over_theme = {'txc_inactive': '#FFFFFF','menu_background':'#35558A'}
+    over_theme = {'txc_inactive': '#FFFFFF','menu_background':'#A7C7E7'}
     menu_id = hc.nav_bar(
         menu_definition=menu_data,
         override_theme=over_theme,
         home_name='Home',
-        hide_streamlit_markers=False, #will show the st hamburger as well as the navbar now!
-        sticky_nav=True, #at the top or not
-        sticky_mode='pinned', #jumpy or not-jumpy, but sticky or pinned
+        hide_streamlit_markers=False,
+        sticky_nav=True,
+        sticky_mode='pinned',
     )
 
     menu = MENU[menu_id]
