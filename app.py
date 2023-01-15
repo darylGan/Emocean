@@ -11,6 +11,27 @@ st.set_page_config(
         'About': "### Long Covid Emotion Analyzer"
     }
 )
+
+hide_streamlit_style = """
+            <style>
+            #MainMenu {visibility: hidden;}
+            footer {visibility: hidden;}
+            </style>
+            """
+st.markdown(hide_streamlit_style, unsafe_allow_html=True)
+
+footer {
+	visibility: hidden;
+	}
+footer: after {
+	content:'Emocean'; 
+	visibility: visible;
+	display: block;
+	position: relative;
+	padding: 5px;
+	top: 2px;
+}
+
 import streamlit.components.v1 as components
 from track_utils import create_emotionclf_table
 import utils.display as udisp
