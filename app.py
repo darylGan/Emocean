@@ -1,15 +1,11 @@
-# Core Pkgs
+import streamlit as st
 from PIL import Image
 img = Image.open("images/logo.png")
-import streamlit as st
 st.set_page_config(
     page_title="Emocean",
     page_icon= img,
     layout="wide",
     initial_sidebar_state="collapsed",
-    menu_items={
-        'About': "### Sentiment & Emotion-based Flood Detection through Twitter"
-    }
 )
 
 hide_streamlit_style = """
