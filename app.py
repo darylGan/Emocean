@@ -35,7 +35,7 @@ def main():
     
     # specify the primary menu definition
     menu_data = [
-        {'icon': "far fa-chart-bar", 'label':"Exploratory Data Analysis"},#no tooltip message
+        {'icon': "far fa-chart-bar", 'label':"Explore"},#no tooltip message
         {'icon': "fas fa-desktop",'label':"Monitor"},
         {'icon': "far fa-copy", 'label':"Documentation"},
         {'icon': "fas fa-info-circle", 'label':"About"}, 
