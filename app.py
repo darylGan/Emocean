@@ -3,7 +3,7 @@ from PIL import Image
 img = Image.open("images/logo.png")
 import streamlit as st
 st.set_page_config(
-    page_title="Long Covid Emotion Analyzer",
+    page_title="Sentiment & Emotion-based Flood Detection through Twitter",
     page_icon= img,
     layout="wide",
     initial_sidebar_state="collapsed",
