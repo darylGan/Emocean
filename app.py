@@ -48,7 +48,7 @@ def main():
         home_name='Home',
         hide_streamlit_markers=False,
         sticky_nav=True,
-        sticky_mode='pinned',
+        sticky_mode='sticky',
     )
 
     menu = MENU[menu_id]
