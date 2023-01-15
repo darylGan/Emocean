@@ -3,14 +3,23 @@ from PIL import Image
 img = Image.open("images/logo.png")
 import streamlit as st
 st.set_page_config(
-    page_title="Long Covid Emotion Analyzer",
+    page_title="Emocean",
     page_icon= img,
     layout="wide",
     initial_sidebar_state="collapsed",
     menu_items={
-        'About': "### Long Covid Emotion Analyzer"
+        'About': "### Sentiment & Emotion-based Flood Detection through Twitter"
     }
 )
+
+hide_streamlit_style = """
+            <style>
+            #MainMenu {visibility: hidden;}
+            footer {visibility: hidden;}
+            </style>
+            """
+st.markdown(hide_streamlit_style, unsafe_allow_html=True)
+
 import streamlit.components.v1 as components
 from track_utils import create_emotionclf_table
 import utils.display as udisp
