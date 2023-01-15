@@ -38,7 +38,7 @@ def main():
         {'icon': "bi bi-bar-chart-line-fill", 'label':"Explore"},  #no tooltip message
         {'icon': "bi bi-tv-fill",'label':"Monitor"},
         {'icon': "bi bi-file-earmark-richtext-fill", 'label':"Documentation"},
-        {'icon': "fas fa-info-circle", 'label':"About"}, 
+        {'icon': "bi bi-info-square-fill", 'label':"About"}, 
     ]
 
     over_theme = {'txc_inactive':'#000000','menu_background':'#A7C7E7','txc_active':'#FFFFFF','option_active':'#000080'}
