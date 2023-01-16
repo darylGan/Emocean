@@ -7,10 +7,6 @@ def space(num_lines=1):
     for _ in range(num_lines):
         st.write("")
 
-def load_lottiefile(filepath: str):
-    with open(filepath, "r") as f:
-        return json.load(f)
-
 def app():
     st.markdown(f'<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">', unsafe_allow_html=True)
     st.markdown("""
@@ -50,9 +46,6 @@ def app():
         """, unsafe_allow_html=True)
         st.markdown("""For some people, coronavirus (COVID-19) can cause symptoms that last weeks or months after the infection has gone. This is sometimes called post-COVID-19 syndrome or '[long COVID](https://www.nhs.uk/conditions/coronavirus-covid-19/long-term-effects-of-coronavirus-long-covid/)'. COVID-19 survivors at all degrees of disease severity, including younger people, children, and those who are not hospitalized, are affected by this long COVID sickness, which is little understood. Many researchers have found that fatigue and difficulty breathing, which can last for months following exposure to COVID-19, are the most prevalent symptoms. Cognitive and mental impairments, chest and joint aches, palpitations, myalgia, smell and taste dysfunctions, cough, headache, and gastrointestinal and cardiac difficulties are all possible persistent symptoms of long COVID.
         """)
-
-    with home_col_2:
-        lottie_coding = load_lottiefile("video/covid19.json")
  
     with home_col_3:
         st.write("")
@@ -63,7 +56,7 @@ def app():
     with abt_col_1:
         st.write("")
     with abt_col_2:
-        st.video("https://youtu.be/GrCKc3X2-1Y")
+        st.video("https://www.youtube.com/watch?v=N6q5iVFxAlc")
     with abt_col_3:
         st.write("")
     with abt_col_4:
