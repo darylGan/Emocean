@@ -32,24 +32,24 @@ def app():
     st.markdown("""
     <h2 style="font-weight:bolder;font-size:30px;color:#216fdb;text-align:left;">The Menu</h2>
 
-    <p>To read more details about this application, can refer to <a target="_blank" href="https://drive.google.com/file/d/1DuWp-kCj483yFLcHv3Gdc_GHLBGDWMyi/view?usp=sharing">user manual.</a></p>
+    <p>To read more details about this application, can refer to <a target="_blank">user manual.</a></p>
 
     <h2 style="font-weight:bolder;font-size:25px;color:#216fdb;text-align:left;">Home</h2>
 
-    The `Home` has an emotion analyzer which is a trained machine learning model that is used to predict the emotion of the user input text. You can input your text or tweets into the *textbox* and click the *Analyze* button to generate the analysis result.
+    **Home** has a text emotion analyzer which is a trained machine learning model that is used to predict the emotion of the user input text. Text or tweets can be input into the textbox and click the *Analyze* button to generate the analysis result.
 
-    <h2 style="font-weight:bolder;font-size:25px;color:#216fdb;text-align:left;">Exploratory Data Analysis</h2>
+    <h2 style="font-weight:bolder;font-size:25px;color:#216fdb;text-align:left;">Explore</h2>
 
-    The `Exploratory Data Analysis` explore the dataset by plotting out various insightful visualizations such as bar chart, word cloud, line chart, etc. to better display the data. You can inspect the dataset that are used in this project and some of the sample tweets for each category of emotions. You can find out the distribution of emotions in the dataset, which words are mostly used in each emotion, which word and combination of words are most popular. You can also find out the trendy words based on timeline.
-
-    **IMPORTANT**: It might take some time for the results to load due to the large dataset that is needed to process. 
+    **Explore** the dataset by plotting various insightful visualizations such as Bar Chart & Word Cloud. The datasets that are used in this project and some of the sample tweets of each category of sentiment & emotion can be inspected. The distribution of emotions in the dataset, which words are mostly used in each emotion, which word and combination of words are most popular can be explored.
+    
+    IMPORTANT: It might take some time for the results to load due to the large dataset that is needed to process. 
 
     <h2 style="font-weight:bolder;font-size:25px;color:#216fdb;text-align:left;">Monitor</h2>
 
-    The `Monitor` collects the inputs text data in emotion analyzer from the user. You can find out the past analyzed text entered by the user in `Home`  and the results.
+    **Monitor** records the input text data in sentiment & emotion analyzer from the user. The past analyzed text entered by users in **Home** and the results can be found here.
     
     <h2 style="font-weight:bolder;font-size:25px;color:#216fdb;text-align:left;">About</h2>
 
-    The `About` introduces the concept of *long COVID*, some details about this application, and the information about the developer.
+    **About** introduces *Floods*, details about this application, and the information about the developer.
 
     """,unsafe_allow_html=True)

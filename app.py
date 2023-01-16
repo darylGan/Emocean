@@ -1,49 +1,43 @@
-# Core Pkgs
-from PIL import Image
-img = Image.open("images/logo.png")
-import streamlit as st
-st.set_page_config(
-    page_title="Long Covid Emotion Analyzer",
-    page_icon= img,
-    layout="wide",
-    initial_sidebar_state="collapsed",
-    menu_items={
-        'About': "### Long Covid Emotion Analyzer"
-    }
-)
-import streamlit.components.v1 as components
-from track_utils import create_emotionclf_table
-import utils.display as udisp
-# import your app modules here
-from src import home, dataVisualization, monitor, documentation, about
-
-
 import hydralit_components as hc
 import datetime
 
+import streamlit as st
+from PIL import Image
+img = Image.open("images/logo.png")
+st.set_page_config(
+    page_title="Emocean",
+    page_icon=img,
+    layout="wide",
+    initial_sidebar_state="collapsed",
+)
+
+hide_streamlit_style = """
+    <style>
+        #MainMenu {visibility: hidden;}
+        footer {visibility: hidden;}
+    </style>
+"""
+st.markdown(hide_streamlit_style, unsafe_allow_html=True)
+
+import streamlit.components.v1 as components
+from track_utils import create_emotionclf_table
+import utils.display as udisp
+
+from src import home, dataVisualization, monitor, documentation, about
 
 MENU = {
     "Home" : home,
-    "Exploratory Data Analysis" : dataVisualization,
-    "Monitor" : monitor,
     "Documentation" : documentation,
     "About" : about,
-    
 }
 
 def main():
-    
-    # specify the primary menu definition
     menu_data = [
-        {'icon': "far fa-chart-bar", 'label':"Exploratory Data Analysis"},#no tooltip message
-        {'icon': "fas fa-desktop",'label':"Monitor"},
-        {'icon': "far fa-copy", 'label':"Documentation"},
-        {'icon': "fas fa-info-circle", 'label':"About"}, 
+        {'icon': "bi bi-file-earmark-text-fill", 'label':"Documentation"},
+        {'icon': "bi bi-info-circle-fill", 'label':"About"}, 
     ]
 
-    #create_emotionclf_table()
-
-    over_theme = {'txc_inactive': '#FFFFFF','menu_background':'#35558A'}
+    over_theme = {'txc_inactive':'#000000','menu_background':'#A7C7E7','txc_active':'#FFFFFF','option_active':'#000080'}
     menu_id = hc.nav_bar(
         menu_definition=menu_data,
         override_theme=over_theme,
@@ -52,17 +46,11 @@ def main():
         sticky_nav=True, #at the top or not
         sticky_mode='pinned', #jumpy or not-jumpy, but sticky or pinned
     )
-
     
-    # st.sidebar.title("Navigate yourself...")
-    # menu_selection = st.sidebar.radio("Menu", list(MENU.keys()))
-
     menu = MENU[menu_id]
     menu_selection = menu_id
     with st.spinner(f"Loading {menu_id} ..."):
         udisp.render_page(menu)
-
-
 
 if __name__ == '__main__':
     main()
