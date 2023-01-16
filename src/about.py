@@ -114,9 +114,7 @@ def app():
     https://github.com/darylGan/Emocean
     
     <h2 style="font-weight:bolder;font-size:20px;color:#216fdb;text-align:left;">About the Developer</h2>
-    3rd year Bachelor of Computer Science (Data Science) student at University of Malaya   
-
-   <br/><br/>
+    3rd year Bachelor of Computer Science (Data Science) student at University of Malaya
 
     Made in [Streamlit](https://www.streamlit.io/) &nbsp, by Daryl Gan &nbsp | &nbsp [GitHub](https://github.com/darylGan) &nbsp | &nbsp [LinkedIn](https://www.linkedin.com/in/daryl-gan-/)
 
