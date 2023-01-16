@@ -76,11 +76,14 @@ def app():
     1. To identify sentiment and emotion by using supervised machine learning algorithms.
         - What algorithms can identify sentiment and emotion from tweets?
 
+
     2.  To develop a sentiment and emotion-based flood detection model for English and Malay.
         - How to develop a machine learning model for different languages? 
         
+        
     3.  To evaluate the effectiveness of the flood detection model by using evaluation metrics.
         - What metrics can evaluate the effectiveness of the machine learning model?
+
 
     4. To build a sentiment and emotion-based flood detection dashboard.
         - How can stakeholders be informed about the data insights and the use of the model?
