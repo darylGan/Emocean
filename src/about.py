@@ -91,8 +91,6 @@ def app():
     4.  To build a sentiment and emotion-based flood detection dashboard.
         - How can stakeholders be informed about the data insights and the use of the model?
         
-        <br/>
-        
     <h2 style="font-weight:bolder;font-size:20px;color:#216fdb;text-align:left;">Stakeholders</h2>
 
     <p>Anyone can use this App completely for free! The target users include the general public who are concerned about floods, emergency response non-profit organizations and governmental bodies such as the Ministry Of Natural Resources, Environment And Climate Change.
@@ -115,7 +113,7 @@ def app():
     
     <h2 style="font-weight:bolder;font-size:20px;color:#216fdb;text-align:left;">About the Developer</h2>
     3rd year Bachelor of Computer Science (Data Science) student at University of Malaya
-
+        <br/>
     Made in [Streamlit](https://www.streamlit.io/) &nbsp, by Daryl Gan &nbsp | &nbsp [GitHub](https://github.com/darylGan) &nbsp | &nbsp [LinkedIn](https://www.linkedin.com/in/daryl-gan-/)
 
     """, unsafe_allow_html=True)
