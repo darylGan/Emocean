@@ -12,7 +12,6 @@ def load_lottiefile(filepath: str):
         return json.load(f)
 
 def app():
-
     st.markdown(f'<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">', unsafe_allow_html=True)
     st.markdown("""
         <style>
@@ -54,16 +53,6 @@ def app():
 
     with home_col_2:
         lottie_coding = load_lottiefile("video/covid19.json")
-        st_lottie(
-            lottie_coding,
-            speed=2,
-            reverse=False,
-            loop=True,
-            quality="low", #medium / high
-            height=None,
-            width=None,
-            key=None,
-        )
  
     with home_col_3:
         st.write("")
