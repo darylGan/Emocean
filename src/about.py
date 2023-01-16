@@ -88,7 +88,7 @@ def app():
         
         <br/>
 
-    4.  To build a sentiment and emotion-based flood detection dashboard.
+    3.  To build a sentiment and emotion-based flood detection dashboard.
         - How can stakeholders be informed about the data insights and the use of the model?
         
         <br/>
