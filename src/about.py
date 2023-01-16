@@ -67,7 +67,9 @@ def app():
     st.markdown("""
     <h2 style="font-weight:bolder;font-size:20px;color:#216fdb;text-align:left;">Sentiment & Emotion Flood Detection through Twitter</h2>
     
-    This project aims to build a sentiment & emotion analyzer about floods. The application can analyze how Malaysians react to the floods and what are their emotions. The application can also analyze the emotion from the user input text. 
+    This project aims to build a sentiment & emotion analyzer about floods. 
+    The application can analyze how Malaysians react to the floods and what are their emotions. 
+    The application can also analyze the emotion from the user input text. 
     
     <h2 style="font-weight:bolder;font-size:20px;color:#216fdb;text-align:left;">Objectives</h2>
 
@@ -109,6 +111,6 @@ def app():
     <br />
     <br />
 
-    ###### Made in [![this is an image link](https://image.pngaaa.com/798/5084798-middle.png)](https://www.streamlit.io/) &nbsp, by Daryl Gan &nbsp | &nbsp [![this is an image link](https://allvectorlogo.com/img/2021/12/github-logo-vector.png)](https://github.com/darylGan) &nbsp | &nbsp [![this is an image link](https://www.citypng.com/public/uploads/preview/hd-linkedin-official-logo-transparent-background-31623962207jz85kqlqot.png)](https://www.linkedin.com/in/daryl-gan-/)
+    Made in [Streamlit](https://www.streamlit.io/) &nbsp, by Daryl Gan &nbsp | &nbsp [GitHub](https://github.com/darylGan) &nbsp | &nbsp [LinkedIn](https://www.linkedin.com/in/daryl-gan-/)
 
     """, unsafe_allow_html=True)
