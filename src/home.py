@@ -150,10 +150,10 @@ def app():
     with col_2:
         st.subheader("Text Emotion Analyzer")
         space(1)
-        st.markdown("**Instructions:** Type in some text")
+        st.markdown("**Instructions:** Type In Some Text")
 
         with st.form(key='emotion_form'):
-            raw_text = st.text_area('Type Here',"Remove These Words")
+            raw_text = st.text_area('Type Here',"Replace These Words")
             cleanDocx = cleantext(raw_text)
             submit_text = st.form_submit_button(label='Analyze')
 
