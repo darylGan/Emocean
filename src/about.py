@@ -75,15 +75,18 @@ def app():
 
     1. To identify sentiment and emotion by using supervised machine learning algorithms.
         - What algorithms can identify sentiment and emotion from tweets?
-
+        
+        <br/><br/>
 
     2.  To develop a sentiment and emotion-based flood detection model for English and Malay.
-        - How to develop a machine learning model for different languages? 
+        - How to develop a machine learning model for different languages?
         
+        <br/><br/>        
         
     3.  To evaluate the effectiveness of the flood detection model by using evaluation metrics.
         - What metrics can evaluate the effectiveness of the machine learning model?
-
+        
+        <br/><br/>
 
     4. To build a sentiment and emotion-based flood detection dashboard.
         - How can stakeholders be informed about the data insights and the use of the model?
@@ -111,8 +114,7 @@ def app():
     <h2 style="font-weight:bolder;font-size:20px;color:#216fdb;text-align:left;">About the Developer</h2>
     3rd year Bachelor of Computer Science (Data Science) student at University of Malaya   
 
-    <br />
-    <br />
+   <br/><br/>
 
     Made in [Streamlit](https://www.streamlit.io/) &nbsp, by Daryl Gan &nbsp | &nbsp [GitHub](https://github.com/darylGan) &nbsp | &nbsp [LinkedIn](https://www.linkedin.com/in/daryl-gan-/)
 
