@@ -3,21 +3,19 @@ from track_utils import add_prediction_details
 from datetime import datetime
 import pandas as pd
 import numpy as np
+import nltk
+from nltk.corpus import stopwords
 import neattext as nt
 from neattext.functions import clean_text
 import joblib
 from sklearn.feature_extraction import text 
-# from PIL import Image
-# import altair as alt
 
 def space(num_lines=1):
     for _ in range(num_lines):
         st.write("")
 
-# Function
 pipe_lr = joblib.load(open("models/emotion_classifier_lr_model_22_Dec_2021.pkl","rb"))
 
-# Function
 def predict_emotions(docx):
     results = pipe_lr.predict([docx])
     return results[0]
@@ -26,38 +24,12 @@ def get_prediction_proba(docx):
     results = pipe_lr.predict_proba([docx])
     return results
 
-# def get_wordnet_pos(treebank_tag):
-#     if treebank_tag.startswith('J'):
-#         return wordnet.ADJ
-#     elif treebank_tag.startswith('V'):
-#         return wordnet.VERB
-#     elif treebank_tag.startswith('N'):
-#         return wordnet.NOUN
-#     elif treebank_tag.startswith('R'):
-#         return wordnet.ADV
-#     else:
-#         return None
+english_NLTK_stopwords_list = stopwords.words('english')
+english_custom_stopword_list = ['you know','i mean','yo','dude','couldnt','cant',
+                                'dont','doesnt','youve','im','ive','wasnt','mightnt','hadnt','hvnt','youre','wouldnt','shouldnt','arent','isnt','werent','youll','its','thats','know','people','amp','time','need','like','year','term','risk','work','gonna','gon na','u','na','sri','dm','tl','bc','cause','ya','w','taman','muda','shah','alam','hulu','langat']
+english_common_words = ['flood', 'help', 'come', 'day', 'feel', 'let', 'love', 'stay', 'water', 'victim', 'make', 'think', 'god', 'want', 'guy', 'bad', 'pls', 'malaysia', 'today', 'tweet', 'open', 'life', 'really', 'say', 'safe', 'pray', 'rain']
 
-# lemmatizer = WordNetLemmatizer()
-
-# def clean_text_round2(text):
-#     tokens = nltk.word_tokenize(text)
-#     tagged = nltk.pos_tag(tokens)
-#     full_text = ''
-#     for word, tag in tagged:
-#         wntag = get_wordnet_pos(tag)
-#         if wntag is None:
-#             lemma = lemmatizer.lemmatize(word)
-#         else:
-#             lemma = lemmatizer.lemmatize(word, pos=wntag)
-#         full_text += lemma + ' '
-#     return full_text
-
-add_stop_words = ['covid', 'long', 'vaccine', 'know', 'people', 'amp', 'time', 'need', 'like', 'year', 'term', 'risk', 'vaccinate', 'symptom','work']
-stop_words = text.ENGLISH_STOP_WORDS.union(add_stop_words)
-
-custom_stop_word_list = ['you know','i mean','yo','dude','couldnt','cant','dont','doesnt','youve',"im",'ive','wasnt','mightnt','hadnt','hvnt','youre','wouldnt','shouldnt','arent','isnt','werent','youll','its','thats', 'covid', 'long', 'vaccine', 'know', 'people', 'amp', 'time', 'need', 'like','year', 'term', 'risk', 'vaccinate', 'symptom', 'work', 'gonna', "gon na", "gon", "na"]
-stop_words = stop_words.union(custom_stop_word_list)
+english_final_stopword_list = english_NLTK_stopwords_list + english_custom_stopword_list + english_common_words
 
 def cleantext(docx):
     docxFrame = nt.TextFrame(text=docx)
