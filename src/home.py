@@ -128,18 +128,6 @@ def app():
             raw_text = st.text_area('Type Here: -',"")
             cleanDocx = cleantext(raw_text)
             submit_text = st.form_submit_button(label='Analyze')
-        
-        #Malay
-        space(10)
-        st.subheader("Penganalisis Sentimen & Emosi Teks")
-        space(1)
-        st.markdown("**Arahan:** Masukkan Teks")
-
-        with st.form(key='form_emosi'):
-            raw_text = st.text_area('Taip Di Sini: -',"")
-            cleanDocx = cleantext(raw_text)
-            submit_text = st.form_submit_button(label='Menganalisis')
-        #Malay
 
     if submit_text:
         col1, col2, col3, col4 = st.columns([1,2,4,1])
@@ -182,3 +170,15 @@ def app():
     else:
         with col_2: 
             st.write("*Click 'Analyze' Button*")
+              
+        #Malay
+        space(5)
+        st.subheader("Penganalisis Sentimen & Emosi Teks")
+        space(1)
+        st.markdown("**Arahan:** Masukkan Teks")
+
+        with st.form(key='form_emosi'):
+            raw_text = st.text_area('Taip Di Sini: -',"")
+            cleanDocx = cleantext(raw_text)
+            submit_text = st.form_submit_button(label='Menganalisis')
+        #Malay
