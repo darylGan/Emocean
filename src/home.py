@@ -129,43 +129,43 @@ def app():
             cleanDocx = cleantext(raw_text)
             submit_english_text = st.form_submit_button(label='Analyze')
 
-        if submit_english_text:
-            col1, col2, col3, col4 = st.columns([1,2,4,1])
+    if submit_english_text:
+        col1, col2, col3, col4 = st.columns([1,2,4,1])
 
-            testing = predictFlood(cleanDocx)
-            testingSentiment = predictSentiment(cleanDocx)
-            probability = get_prediction_proba(cleanDocx)
-            prediction = pd.DataFrame(probability.idxmax(axis=1))
+        testing = predictFlood(cleanDocx)
+        testingSentiment = predictSentiment(cleanDocx)
+        probability = get_prediction_proba(cleanDocx)
+        prediction = pd.DataFrame(probability.idxmax(axis=1))
 
-            with col2:
-                st.success("Prediction")
-                if testing == 0:
-                    st.write("Non-Flood Related")
-                else:
-                    st.write("Flood Related")         
+        with col2:
+            st.success("Prediction")
+            if testing == 0:
+                st.write("Non-Flood Related")
+            else:
+                st.write("Flood Related")         
             
-                st.write("Sentiment: {}".format(testingSentiment))
+            st.write("Sentiment: {}".format(testingSentiment))
             
-                value = prediction.loc[0][0]
-                emoji_icon = emotions_emoji_dict[value]
-                st.write("Emotion: {} {}".format(value,emoji_icon))
-                st.write("Emotion Score: {:.0%}".format(np.max(probability.to_numpy())))
+            value = prediction.loc[0][0]
+            emoji_icon = emotions_emoji_dict[value]
+            st.write("Emotion: {} {}".format(value,emoji_icon))
+            st.write("Emotion Score: {:.0%}".format(np.max(probability.to_numpy())))
             
-                add_prediction_details(raw_text,value,np.max(probability.to_numpy()),datetime.now())
+            add_prediction_details(raw_text,value,np.max(probability.to_numpy()),datetime.now())
             
-            with col3:
-                st.success("Emotion Score")
-                proba_df = probability
-                porba_df_clean = proba_df.T.reset_index()
-                porba_df_clean.columns = ["emotions","probability"]
+        with col3:
+            st.success("Emotion Score")
+            proba_df = probability
+            porba_df_clean = proba_df.T.reset_index()
+            porba_df_clean.columns = ["emotions","probability"]
 
-                import plotly.express as px 
-                bar_CC = px.bar(porba_df_clean, x='emotions', y='probability', color='emotions',color_discrete_sequence=px.colors.qualitative.T10)
+            import plotly.express as px 
+            bar_CC = px.bar(porba_df_clean, x='emotions', y='probability', color='emotions',color_discrete_sequence=px.colors.qualitative.T10)
 
-                bar_CC.update_xaxes()
-                bar_CC.update_layout()
-                st.plotly_chart(bar_CC,use_container_width=True)
+            bar_CC.update_xaxes()
+            bar_CC.update_layout()
+            st.plotly_chart(bar_CC,use_container_width=True)
             
-        else:
-            with col_2: 
-                st.write("*Click 'Analyze' Button*")
+    else:
+        with col_2: 
+            st.write("*Click 'Analyze' Button*")
