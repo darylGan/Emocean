@@ -89,32 +89,30 @@ def app():
             if choiceSelection=="Emotion Distribution":
                 title('Distribution of the Number of Emotions per English Tweet',30)
 
-                fig = plt.figure(figsize=(10,5))
+                fig = plt.figure(figsize=(20,10))
                 sns.countplot(df.emotion_count, palette='gist_rainbow')
                 plt.xlabel("Number of Emotions")
                 plt.ylabel("Number of Tweets")
                 st.pyplot(fig)
 
             elif choiceSelection=="Emotion Word Cloud":
-                #--------------------------WORD_CLOUD---------------------------
-                title('Emotions WordCloud',30)
+                title('Emotion Word Cloud',30)
 
-                unique_emotion = ['analytical','neutral','sadness','joy','anger','tentative','fear','confidence']
-                sl = st.slider('Pick Number of Words',50,200)
+                unique_emotion = ['anger', 'anticipation', 'disgust', 'fear', 'joy', 'sadness', 'surprise', 'trust']
+                sl = st.slider('Choose Number of Words',50,200)
                 
                 def grey_color_func(word, font_size, position,orientation,random_state=None, **kwargs):
                     return("hsl(240,100%%, %d%%)" % np.random.randint(45,55))
                 
                 wc = WordCloud(stopwords=stop_words, background_color="white", color_func = grey_color_func, max_font_size=150, random_state=42,max_words=sl, collocations=False)
 
-                plt.rcParams['figure.figsize'] = [30, 30]  #16,6 #40,40
+                plt.rcParams['figure.figsize'] = [30, 30]
                 full_names = unique_emotion
 
-                # Create subplots for each emotion
                 for index, emotion in enumerate(corpus.emotion):
                     wc.generate(corpus.clean_tweet[emotion])
                     
-                    plt.subplot(4, 2, index+1)  #3,4 #4,2
+                    plt.subplot(4, 2, index+1)
                     plt.imshow(wc, interpolation="bilinear")
                     plt.axis("off")
                     plt.title(full_names[index], fontsize = 40)
