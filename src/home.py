@@ -119,6 +119,7 @@ def app():
     with col_2:
         st.image("images/name.png")
         st.markdown('<h1 style="font-weight:10;font-size: 50px;font-family:Source Sans Pro, sans-serif;text-align:center;">Sentiment & Emotion-based Flood Detection through Twitter</h1>',unsafe_allow_html=True)
+        
         space(2)
         st.subheader("Text Sentiment & Emotion Analyzer")
         space(1)
@@ -127,12 +128,11 @@ def app():
         with st.form(key='emotion_form'):
             raw_text = st.text_area('Type Here: -',"")
             cleanDocx = cleantext(raw_text)
-            submit_text = st.form_submit_button(label='Analyze')
+            submit_english_text = st.form_submit_button(label='Analyze')
 
-        if submit_text:
+        if submit_english_text:
             col1, col2, col3, col4 = st.columns([1,2,4,1])
 
-            # Prediction Funtions
             testing = predictFlood(cleanDocx)
             testingSentiment = predictSentiment(cleanDocx)
             probability = get_prediction_proba(cleanDocx)
@@ -180,5 +180,46 @@ def app():
         with st.form(key='form_emosi'):
             raw_text = st.text_area('Taip Di Sini: -',"")
             cleanDocx = cleantext(raw_text)
-            submit_text = st.form_submit_button(label='Menganalisis')
+            submit_malay_text = st.form_submit_button(label='Analisis')
         #Malay
+
+        if submit_english_text:
+            col1, col2, col3, col4 = st.columns([1,2,4,1])
+
+            testing = predictFlood(cleanDocx)
+            testingSentiment = predictSentiment(cleanDocx)
+            probability = get_prediction_proba(cleanDocx)
+            prediction = pd.DataFrame(probability.idxmax(axis=1))
+
+            with col2:
+                st.success("Prediction")
+                if testing == 0:
+                    st.write("Non-Flood Related")
+                else:
+                    st.write("Flood Related")         
+            
+                st.write("Sentiment: {}".format(testingSentiment))
+            
+                value = prediction.loc[0][0]
+                emoji_icon = emotions_emoji_dict[value]
+                st.write("Emotion: {} {}".format(value,emoji_icon))
+                st.write("Emotion Score: {:.0%}".format(np.max(probability.to_numpy())))
+            
+                add_prediction_details(raw_text,value,np.max(probability.to_numpy()),datetime.now())
+            
+            with col3:
+                st.success("Emotion Score")
+                proba_df = probability
+                porba_df_clean = proba_df.T.reset_index()
+                porba_df_clean.columns = ["emotions","probability"]
+
+                import plotly.express as px 
+                bar_CC = px.bar(porba_df_clean, x='emotions', y='probability', color='emotions',color_discrete_sequence=px.colors.qualitative.T10)
+
+                bar_CC.update_xaxes()
+                bar_CC.update_layout()
+                st.plotly_chart(bar_CC,use_container_width=True)
+            
+        else:
+            with col_2: 
+                st.write("*Klik Butang 'Analisis'*")
