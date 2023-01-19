@@ -12,7 +12,7 @@ def app():
     st.markdown("""<h2 style="font-weight:bolder;font-size:30px;color:#216fdb;text-align:left;">Emotion Text Analyzer History</h2>""",unsafe_allow_html=True)
 
     df_emotions = pd.DataFrame(view_all_prediction_details(),columns=['Input Text','Emotion','Score','Time of Visit'])
-    st.dataframe(df_emotions, width=800)
+    st.dataframe(df_emotions, width=2000)
     
     prediction_count = df_emotions['Emotion'].value_counts().rename_axis('Emotion').reset_index(name='Count')
 
