@@ -40,16 +40,29 @@ def cleantext(docx):
     cleanDocx = ' '.join(term for term in cleanDocx.split() if term not in english_stop_words)
     return cleanDocx
 
-emotions_emoji_dict = {"anger":"😡","analytical":"🧐","sadness":"😔","neutral":"😐","tentative":"🤔","joy":"😂","confident":"😎","fear":"😨"}
+emotions_emoji_dict = {"anger":"😡","anticipation":"🤔","disgust":"🤢","fear":"😨","joy":"😂","sadness":"😔","surprise":"😲","trust":"🤗"}
 
-pipe_lr = joblib.load(open("models/emotion_classifier_lr_model_22_Dec_2021.pkl","rb"))
+dfEng = pd.read_pickle(datasets/"DSPEnglishTweetsCleanedV2.pkl")
 
-def predict_emotions(docx):
-    results = pipe_lr.predict([docx])
-    return results[0]
+dfEng_subset = dfEng[dfEng['neutral'] != 1]
+train, test = train_test_split(dfEng_subset, shuffle=True, test_size=0.2, random_state=42)
+
+X_emotion_train = train['Tweets']
+y_emotion_train = train[['anger', 'anticipation', 'disgust', 'fear', 'joy', 'sadness', 'surprise', 'trust']]
+
+X_emotion_test = test['Tweets']
+y_emotion_test = test[['anger', 'anticipation', 'disgust', 'fear', 'joy', 'sadness', 'surprise', 'trust']]
+
+eng_emotion_model = joblib.load(open("models/english_emotion_rf.pkl","rb"))
 
 def get_prediction_proba(docx):
-    results = pipe_lr.predict_proba([docx])
+    emotion = ['anger', 'anticipation', 'disgust', 'fear', 'joy', 'sadness', 'surprise', 'trust']
+    results = pd.DataFrame(columns=['anger', 'anticipation', 'disgust', 'fear', 'joy', 'sadness', 'surprise', 'trust'])
+    for label in emotion:
+        eng_emotion_model.fit(X_emotion_train, train[label])
+
+        test_y_prob = eng_emotion_model.predict_proba([docx])[:,1]
+        results[label] = test_y_prob
     return results
 
 def app():
@@ -101,8 +114,8 @@ def app():
         col1, col2, col3, col4 = st.columns([1,2,4,1])
 
         # Apply Prediction Funtion Here
-        prediction = predict_emotions(cleanDocx)
         probability = get_prediction_proba(cleanDocx)
+        prediction = probability.idxmax(axis=1)
 
         add_prediction_details(raw_text,prediction,np.max(probability),datetime.now())
 
@@ -114,7 +127,7 @@ def app():
         
         with col3:
             st.success("Emotion Score")
-            proba_df = pd.DataFrame(probability,columns=pipe_lr.classes_)
+            proba_df = probability
             porba_df_clean = proba_df.T.reset_index()
             porba_df_clean.columns = ["emotions","probability"]
 
