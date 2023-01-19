@@ -104,9 +104,9 @@ def app():
                 st.pyplot(fig)
 
             elif choiceSelection=="Emotion Word Cloud":
-                st.write(dtm)
-                st.write(corpus)
                 title('Emotion Word Cloud',30)
+                
+                sl = st.slider('Choose Number of Words',10,100)
                 
                 english_data = pd.read_pickle("datasets/DSPEnglishTweetsDTM.pkl")
                 english_data = english_data.transpose()
@@ -114,9 +114,7 @@ def app():
                 
                 english_data_clean = pd.read_pickle("datasets/DSPEnglishTweetsCorpus.pkl")
                 english_data_clean.index = ['anger', 'anticipation', 'disgust', 'fear', 'joy', 'sadness', 'surprise', 'trust']
-                
-                sl = st.slider('Choose Number of Words',50,100)
-                
+
                 def grey_color_func(word, font_size, position, orientation, random_state=None, **kwargs):
                     return("hsl(240,100%%, %d%%)" % np.random.randint(45,55))
 
@@ -133,7 +131,7 @@ def app():
                     plt.subplot(4, 2, index+1)
                     plt.imshow(english_wc, interpolation="bilinear")
                     plt.axis("off")
-                    plt.title(full_names[index], fontsize = 30)
+                    plt.title(full_names[index], fontsize = 40)
 
                 st.pyplot()
 
