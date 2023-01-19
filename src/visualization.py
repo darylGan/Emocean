@@ -98,25 +98,25 @@ def app():
             elif choiceSelection=="Emotion Word Cloud":
                 title('Emotion Word Cloud',30)
 
-                unique_emotion = ['anger', 'anticipation', 'disgust', 'fear', 'joy', 'sadness', 'surprise', 'trust']
                 sl = st.slider('Choose Number of Words',50,200)
-                
-                def grey_color_func(word, font_size, position,orientation,random_state=None, **kwargs):
+ 
+                def grey_color_func(word, font_size, position, orientation, random_state=None, **kwargs):
                     return("hsl(240,100%%, %d%%)" % np.random.randint(45,55))
-                
-                wc = WordCloud(stopwords=stop_words, background_color="white", color_func = grey_color_func, max_font_size=150, random_state=42,max_words=sl, collocations=False)
 
-                plt.rcParams['figure.figsize'] = [30, 30]
-                full_names = unique_emotion
+                wc = WordCloud(stopwords=stop_words, background_color="white", color_func = grey_color_func, max_font_size=150, random_state=42, max_words=sl, collocations=False)
 
-                for index, emotion in enumerate(corpus.emotion):
-                    wc.generate(corpus.clean_tweet[emotion])
-                    
+                plt.rcParams['figure.figsize'] = [20, 20]
+
+                full_names = emotion = ['anger', 'anticipation', 'disgust', 'fear', 'joy', 'sadness', 'surprise', 'trust']
+
+                for index, emotion in enumerate(corpus.columns):
+                    wc.generate(corpus.Tweets[emotion])
+
                     plt.subplot(4, 2, index+1)
                     plt.imshow(wc, interpolation="bilinear")
                     plt.axis("off")
-                    plt.title(full_names[index], fontsize = 40)
-                    
+                    plt.title(full_names[index], fontsize = 20)
+
                 st.pyplot()
 
             elif choiceSelection=="Common Words":
