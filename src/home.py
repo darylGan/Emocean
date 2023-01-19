@@ -147,6 +147,7 @@ def app():
         st.write()
     
     with col_2:
+        st.image("images/name.png")
         st.subheader("Emotion Analyzer In Text")
         space(1)
         st.markdown("**Instructions:** Type in your text")
