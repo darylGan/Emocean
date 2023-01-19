@@ -44,14 +44,13 @@ def app():
     def header(text):
         st.markdown(f"<p style='color:white;'>{text}</p>",unsafe_allow_html=True)
 
-    # loading the data
     df = load_data()
     corpus = load_corpus()
     
-    st.title("Explore Flood Emotions")
+    st.title("Explore Emotions of Flood")
     space(1)
     st.markdown("""
-    * Dataset Size: 3000 tweets
+    * Dataset Size: 3000 Tweets
     * Time Period: 19th December 2021 - 31st January 2022
     """)
     space(1)
@@ -59,24 +58,24 @@ def app():
 
     space(1)
     st.subheader("Dataset")    
-    with st.expander("Expand to Filter Dataset"):
+    with st.expander("Expand to View Dataset"):
         emotion_list = ['all', 'anger', 'anticipation', 'disgust', 'fear', 'joy', 'sadness', 'surprise', 'trust']
-        select_emotion = st.selectbox('select emotion',emotion_list)
+        space(1)
+        select_emotion = st.selectbox('Select Emotion to Display Related Tweets:',emotion_list)
         
         if select_emotion == 'all':
             df_selected_tweet = df
         else:
             df_selected_tweet = df[df[select_emotion]==1]
 
-        st.header('Display Tweets of Selected Emotion(s)')
-        st.write('Data Dimension: '+ str(df_selected_tweet.shape[0]) + ' rows and ' + str(df_selected_tweet.shape[1]) + ' columns.')
+        st.write('Data Dimension: '+ str(df_selected_tweet.shape[0]) + ' tweets and ' + str(df_selected_tweet.shape[1]) + ' attributes.')
         st.dataframe(df_selected_tweet)    
     
     space(1)
     st.write("***")
     space(1)
 
-    st.markdown('<h3 style="font-weight:lighter;font-size:50px;font-family:Source Sans Pro, sans-serif;text-align:center;">Visualization</h3>',unsafe_allow_html=True)
+    st.markdown('<h3 style="font-size:50px;font-family:Source Sans Pro, sans-serif;text-align:center;">Visualizations</h3>',unsafe_allow_html=True)
     space(2) 
 
     with st.container():
