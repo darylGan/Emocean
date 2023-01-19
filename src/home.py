@@ -45,15 +45,11 @@ def cleantext(docx):
     cleanDocx = docxFrame.text
     cleanDocx = clean_text(cleanDocx, contractions=True, stopwords=True)
     cleanDocx = ' '.join(term for term in cleanDocx.split() if term not in english_stop_words)
-    # cleanDocx = clean_text_round2(cleanDocx)
     return cleanDocx
 
-emotions_emoji_dict = {"analytical":"🧐", "sadness":"😔", "neutral":"😐","tentative":"🤔","joy":"😂","confident":"😎","fear":"😨😱","anger":"😡"}
+emotions_emoji_dict = {"analytical":"🧐", "sadness":"😔", "neutral":"😐","tentative":"🤔","joy":"😂","confident":"😎","fear":"😨","anger":"😡"}
 
-
-# Disable Some Warnings
 st.set_option('deprecation.showPyplotGlobalUse', False)
-
 
 def app():
     st.markdown(f'<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">', unsafe_allow_html=True)
@@ -75,34 +71,12 @@ def app():
             padding: 8px 16px 16px 16px;
             max-width: 468px;
             transition: transform 500ms ease;
-            
         }
         .twitter-tweet:hover,
         .twitter-tweet:focus-within {
             transform: scale(1.025);
         }
         </style>""",unsafe_allow_html=True)
-
-    # add_page_visited_details("Home",datetime.now())
-    # Page title
-    #st.title("Long Covid Emotion Analyzer")
-    # col1, col2, col3, col4 = st.columns([1,3,3,1])
-    # img = Image.open("images/logo.jpg")
-    # with col1:
-    #     st.write("")
-
-    # with col2:
-    #     st.image(img, use_column_width=True)
-
-    # with col3:
-    #     space(2)
-    #     st.markdown("""
-    #     ## This application analyze the emotions of people about long COVID topic on Twitter and predict the emotions!
-    #     """)
-    #     space(1)
-    #     st.markdown("""##### People show various emotions in daily communications. This emotion predictor analyses emotions in what people write online such as tweets. It will predict whether they are joy, fear, sadness, anger, analytical, confident and tentative.""")
-    # with col4:
-    #     st.write("")
 
     col_1, col_2, col_3 = st.columns([1,8,1])
 
@@ -111,19 +85,18 @@ def app():
     
     with col_2:
         st.image("images/name.png")
-        st.markdown('<h1 style="font-weight:10;font-size: 50px;font-family:Source Sans Pro, sans-serif;text-align:center;">Long Covid Emotion Analyzer</h1>',unsafe_allow_html=True)
+        st.markdown('<h1 style="font-weight:10;font-size: 50px;font-family:Source Sans Pro, sans-serif;text-align:center;">Sentiment & Emotion-based Flood Detection through Twitter</h1>',unsafe_allow_html=True)
         space(2)
-        st.subheader("Emotion Analyzer In Text")
+        st.subheader("Text Sentiment & Emotion Analyzer")
         space(1)
-        st.markdown("**Instructions:** Type in your text")
+        st.markdown("**Instructions:** Enter Text")
 
         with st.form(key='emotion_form'):
-            raw_text = st.text_area('Type Here',"Long Covid brings lots of negative and bad effect to the patient. I feel sorry to those who are suffering from Long Covid symptoms")
+            raw_text = st.text_area('Type Here: -',"")
             cleanDocx = cleantext(raw_text)
             submit_text = st.form_submit_button(label='Analyze')
 
     if submit_text:
-        #st.balloons()  #display some balloons effect xD
         col1, col2, col3, col4 = st.columns([1,2,4,1])
         # col1,col2 = st.columns(2)
 
