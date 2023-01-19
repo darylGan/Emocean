@@ -3,8 +3,6 @@ from track_utils import add_prediction_details
 from datetime import datetime
 import pandas as pd
 import numpy as np
-import nltk
-from nltk.corpus import stopwords
 import neattext as nt
 from neattext.functions import clean_text
 import joblib
@@ -24,12 +22,10 @@ def get_prediction_proba(docx):
     results = pipe_lr.predict_proba([docx])
     return results
 
-english_NLTK_stopwords_list = stopwords.words('english')
 english_custom_stopword_list = ['you know','i mean','yo','dude','couldnt','cant',
                                 'dont','doesnt','youve','im','ive','wasnt','mightnt','hadnt','hvnt','youre','wouldnt','shouldnt','arent','isnt','werent','youll','its','thats','know','people','amp','time','need','like','year','term','risk','work','gonna','gon na','u','na','sri','dm','tl','bc','cause','ya','w','taman','muda','shah','alam','hulu','langat']
 english_common_words = ['flood', 'help', 'come', 'day', 'feel', 'let', 'love', 'stay', 'water', 'victim', 'make', 'think', 'god', 'want', 'guy', 'bad', 'pls', 'malaysia', 'today', 'tweet', 'open', 'life', 'really', 'say', 'safe', 'pray', 'rain']
-
-english_final_stopword_list = english_NLTK_stopwords_list + english_custom_stopword_list + english_common_words
+english_stopwords = (text.ENGLISH_STOP_WORDS.union(english_custom_stopword_list)).union(english_common_words)
 
 def cleantext(docx):
     docxFrame = nt.TextFrame(text=docx)
