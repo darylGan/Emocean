@@ -40,7 +40,7 @@ def cleantext(docx):
     cleanDocx = ' '.join(term for term in cleanDocx.split() if term not in english_stop_words)
     return cleanDocx
 
-emotions_emoji_dict = {"analytical":"🧐", "sadness":"😔", "neutral":"😐","tentative":"🤔","joy":"😂","confident":"😎","fear":"😨","anger":"😡"}
+emotions_emoji_dict = {"anger":"😡","analytical":"🧐","sadness":"😔","neutral":"😐","tentative":"🤔","joy":"😂","confident":"😎","fear":"😨"}
 
 pipe_lr = joblib.load(open("models/emotion_classifier_lr_model_22_Dec_2021.pkl","rb"))
 
