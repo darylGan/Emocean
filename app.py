@@ -43,7 +43,7 @@ MENU = {
 
 def main():
     menu_data = [
-        {'icon': "bi bi-houses-fill", 'label':"Rumah"},
+        {'icon': "bi bi-house-fill", 'label':"Rumah"},
         {'icon': "bi bi-bar-chart-line-fill", 'label':"Explore"},
         {'icon': "bi bi-tv-fill",'label':"Monitor"},
         {'icon': "bi bi-file-earmark-text-fill", 'label':"User Manual"},
