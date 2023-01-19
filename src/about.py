@@ -40,11 +40,13 @@ def app():
         st.write("")
     
     st.markdown("""
+    <br/>
     <h2 style="font-weight:bolder;font-size:20px;color:#216fdb;text-align:left;">Sentiment & Emotion Flood Detection through Twitter</h2>
     
     This project was aimed to build a sentiment & emotion text analyzer about floods. 
     The dashboard can analyze how Malaysians react to the annual floods and what are their emotions. 
     
+    <br/>
     <h2 style="font-weight:bolder;font-size:20px;color:#216fdb;text-align:left;">Objectives</h2>
 
     1. To identify sentiment and emotion by using supervised machine learning algorithms.
@@ -64,26 +66,31 @@ def app():
 
     4.  To build a sentiment and emotion-based flood detection dashboard.
         - How can stakeholders be informed about the data insights and the use of the model?
-        
+    
+    <br/>
     <h2 style="font-weight:bolder;font-size:20px;color:#216fdb;text-align:left;">Stakeholders</h2>
 
     The target users include:
     + General Public who are concerned about floods
     + Emergency Response Non-Profit Organizations (Mercy Malaysia; CREST Malaysia; Malaysian Red Crescent Society) 
     + Governmental Bodies (NADMA; Ministry Of Natural Resources, Environment And Climate Change)
-
+    
+    <br/>
     <h2 style="font-weight:bolder;font-size:20px;color:#216fdb;text-align:left;">Dataset</h2>
 
     The datasets used in this project is scraped from Twitter using Twitter API.     
     To access the dataset:   
     [English Dataset](https://drive.google.com/file/d/1U4ZgsQIhThBzvf26UK7er6mcWc4Z_aY-/view?usp=sharing)
+    <br/>
     [Malay Dataset](https://drive.google.com/file/d/1Pvbf16V5SwidUbCDtxtLme0RyLCdEQK9/view?usp=sharing)
 
+    <br/>
     <h2 style="font-weight:bolder;font-size:20px;color:#216fdb;text-align:left;">Source Code</h2>
     
     To access the source code:
     [Source Code](https://github.com/darylGan/Emocean)
     
+    <br/>
     <h2 style="font-weight:bolder;font-size:20px;color:#216fdb;text-align:left;">About the Developer</h2>
     
     3rd year Bachelor of Computer Science (Data Science) student at University of Malaya
