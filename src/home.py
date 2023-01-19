@@ -89,7 +89,7 @@ def app():
         space(2)
         st.subheader("Text Sentiment & Emotion Analyzer")
         space(1)
-        st.markdown("**Instructions:** Enter Text")
+        st.markdown("**Instructions:** Enter Text'")
 
         with st.form(key='emotion_form'):
             raw_text = st.text_area('Type Here: -',"")
@@ -98,7 +98,6 @@ def app():
 
     if submit_text:
         col1, col2, col3, col4 = st.columns([1,2,4,1])
-        # col1,col2 = st.columns(2)
 
         # Apply Prediction Funtion Here
         prediction = predict_emotions(cleanDocx)
@@ -107,35 +106,23 @@ def app():
         add_prediction_details(raw_text,prediction,np.max(probability),datetime.now())
 
         with col2:
-            # st.success("Original Text")
-            # st.write(raw_text)
-
             st.success("Prediction")
             emoji_icon = emotions_emoji_dict[prediction]
             st.write("{}:{}".format(prediction,emoji_icon))
             st.write("Score:{:.0%}".format(np.max(probability)))
         
         with col3:
-            # st.success("Preprocessing Text")
-            # st.write(cleanDocx)
-
             st.success("Emotion Score")
-            #st.write(probability)
             proba_df = pd.DataFrame(probability,columns=pipe_lr.classes_)
-            #st.write(proba_df.T)
             porba_df_clean = proba_df.T.reset_index()
             porba_df_clean.columns = ["emotions","probability"]
 
-            # fig = alt.Chart(porba_df_clean,height=400).mark_bar().encode(x='emotions',y='probability', color='emotions')
-            # st.altair_chart(fig, use_container_width=True)
-            # ---------------------- Emotion Bar Chart ---------------------
             import plotly.express as px 
             bar_CC = px.bar(porba_df_clean, x='emotions', y='probability', color='emotions',color_discrete_sequence=px.colors.qualitative.T10)
-            # https://plotly.com/python/discrete-color/
 
             bar_CC.update_xaxes() #tickangle=0
             bar_CC.update_layout() #margin_t=10,margin_b=150
             st.plotly_chart(bar_CC,use_container_width=True)
     else:
         with col_2: 
-            st.write("*Analysis of text will appear here after you click the 'Analyze' button*")
+            st.write("*Click 'Analyze' Button*")
