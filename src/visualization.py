@@ -149,6 +149,8 @@ def app():
                 bar_C1.update_yaxes(dtick=1, automargin=True)
 
                 st.plotly_chart(bar_C1,use_container_width=True)
+                
+                space(3)
 
                 #Bigram
                 title('Most Common Two English Keywords (Bigram)',30)
@@ -163,6 +165,8 @@ def app():
                 bar_C2.update_yaxes(dtick=1, automargin=True)
 
                 st.plotly_chart(bar_C2,use_container_width=True)
+                
+                space(3)
 
                 #Trigram
                 title('Most Common Three English Keywords (Trigram)',30)
