@@ -7,7 +7,7 @@ def app():
     st.title("User Manual")
 
     st.markdown("""
-    <h2 style="font-weight:bolder;font-size:30px;color:#216fdb;text-align:left;">User Manual PDF</h2>
+    <h2 style="font-weight:bolder;font-size:30px;color:#216fdb;text-align:left;">User Manual Document</h2>
 
     <p>To find out more details about this application, please refer to this <a target="_blank" href="https://drive.google.com/file/d/1DuWp-kCj483yFLcHv3Gdc_GHLBGDWMyi/view?usp=sharing">user manual.</a></p>
 
