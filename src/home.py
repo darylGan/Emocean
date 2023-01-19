@@ -119,8 +119,6 @@ def app():
         probability = get_prediction_proba(cleanDocx)
         prediction = probability.idxmax(axis=1)
 
-        add_prediction_details(raw_text,prediction,np.max(probability),datetime.now())
-
         with col2:
             st.success("Prediction")
             emoji_icon = emotions_emoji_dict[prediction]
