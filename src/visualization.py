@@ -6,6 +6,7 @@ import plotly.express as px
 import matplotlib.pyplot as plt
 from sklearn.feature_extraction.text import CountVectorizer
 from sklearn.feature_extraction import text 
+import seaborn as sns
 
 def space(num_lines=1):
     for _ in range(num_lines):
@@ -87,8 +88,7 @@ def app():
             space(2)
             if choiceSelection=="Emotion Distribution":
                 title('Distribution of the Number of Emotions per English Tweet',30)
-                
-                import seaborn as sns
+
                 fig = plt.figure(figsize=(10,5))
                 sns.countplot(df.emotion_count, palette='gist_rainbow')
                 plt.xlabel("Number of Emotions")
