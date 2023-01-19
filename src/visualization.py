@@ -118,12 +118,18 @@ def app():
                 plt.rcParams['figure.figsize'] = [20, 20]
 
                 full_names = emotion = ['anger', 'anticipation', 'disgust', 'fear', 'joy', 'sadness', 'surprise', 'trust']
+                
+                english_data = pd.read_pickle('DSPEnglishTweetsDTM.pkl')
+                english_data = english_data.transpose()
+                english_data
+                
+                english_data_clean = pd.read_pickle('DSPEnglishTweetsCorpus.pkl')
+                
+                for index, emotion in enumerate(english_data.columns):
+                    wc.generate(english_data_clean.Tweets[emotion])
 
-                for index, emotion in enumerate(dtm.columns):
-                    wc.generate(corpus.Tweets[emotion])
-
-                    plt.subplot(4, 2, index+1)
-                    plt.imshow(wc, interpolation="bilinear")
+                    plt.subplot(3, 4, index+1)
+                    plt.imshow(english_wc, interpolation="bilinear")
                     plt.axis("off")
                     plt.title(full_names[index], fontsize = 20)
 
