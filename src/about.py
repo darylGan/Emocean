@@ -3,39 +3,14 @@ from streamlit_lottie import st_lottie
 import json
 
 def space(num_lines=1):
-    """Adds empty lines to the Streamlit app."""
     for _ in range(num_lines):
         st.write("")
 
 def app():
-    st.markdown(f'<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">', unsafe_allow_html=True)
-    st.markdown("""
-        <style>
-        blockquote.twitter-tweet {
-            display: inline-block;
-            font-family: "Helvetica Neue", Roboto, "Segoe UI", Calibri, sans-serif;
-            font-size: 12px;
-            font-weight: bold;
-            line-height: 16px;
-            border-color: #eee #ddd #bbb;
-            border-radius: 5px;
-            border-style: solid;
-            border-width: 1px;
-            box-shadow: 0 1px 3px rgb(0 0 0 / 20%);
-            margin: 10px 5px;
-            padding: 8px 16px 16px 16px;
-            max-width: 468px;
-            transition: transform 500ms ease;
-        }
-        .twitter-tweet:hover,
-        .twitter-tweet:focus-within {
-            transform: scale(1.025);
-        }
-        </style>""",unsafe_allow_html=True)
-        
-    #st.subheader("About")
+    def title(text,size):
+        st.markdown(f'<h3 style="font-weight:bolder;font-size:{size}px;text-align:center;">{text}</h3>',unsafe_allow_html=True)
     
-    st.title("About the Application")
+    st.title("About the Dashboard")
     home_col_1, home_col_2, home_col_3= st.columns([10,2,1])
 
     with home_col_1:
@@ -49,19 +24,15 @@ def app():
  
     with home_col_3:
         st.write("")
-    # Video
+
     st.markdown("A video about the floods in 2021/2022")
 
-    abt_col_1, abt_col_2, abt_col_3, abt_col_4,abt_col_5 = st.columns([0.1,2,1,1.5,1])
+    abt_col_1, abt_col_2, abt_col_3 = st.columns([0.1,5,0.1])
     with abt_col_1:
         st.write("")
     with abt_col_2:
         st.video("https://www.youtube.com/watch?v=N6q5iVFxAlc")
     with abt_col_3:
-        st.write("")
-    with abt_col_4:
-        st.write("")
-    with abt_col_5:
         st.write("")
     
     st.markdown("""
