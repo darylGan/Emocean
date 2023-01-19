@@ -136,14 +136,12 @@ def app():
                 st.pyplot()
 
             elif choiceSelection=="Common Words":
-                #-------------------------Module 1-----------------------------
+                #Unigram
                 title('Most Popular One Word',30)
-                # st.caption('removing all the stop words in the sense common words.')
-
+                
                 sl_2 = st.slider('Pick Number of Words',5,50,10, key="1")
 
-                # Unigrams - Most Popular One Keyword
-                top_text_bigrams = get_top_text_ngrams(corpus.clean_tweet, ngrams=(1,1), nr=sl_2)
+                top_text_bigrams = get_top_text_ngrams(corpus.Tweets, ngrams=(1,1), nr=sl_2)
                 top_text_bigrams = sorted(top_text_bigrams, key=lambda x:x[1], reverse=False)
                 x, y = zip(*top_text_bigrams)
                 bar_C1 = px.bar(x=y,y=x, color=y, labels={'x':'Number of words','y':'Words','color':'frequency'}, title='Most Popular One Word', text=y, color_continuous_scale=px.colors.sequential.Plotly3[::-1])
@@ -152,13 +150,12 @@ def app():
 
                 st.plotly_chart(bar_C1,use_container_width=True)
 
-                #-------------------------Module 2-----------------------------
+                #Bigram
                 title('Most Popular Two Words',30)
 
                 sl_3 = st.slider('Pick Number of Words',5,50,10, key="2")
 
-                # Unigrams - Most Popular One Keyword
-                top_text_bigrams = get_top_text_ngrams(corpus.clean_tweet, ngrams=(2,2), nr=sl_3)
+                top_text_bigrams = get_top_text_ngrams(corpus.Tweets, ngrams=(2,2), nr=sl_3)
                 top_text_bigrams = sorted(top_text_bigrams, key=lambda x:x[1], reverse=False)
                 x, y = zip(*top_text_bigrams)
                 bar_C2 = px.bar(x=y,y=x, color=y, labels={'x':'Number of words','y':'Words','color':'frequency'}, title='Most Popular Two Word', text=y, color_continuous_scale='Plotly3_r')
@@ -167,14 +164,12 @@ def app():
 
                 st.plotly_chart(bar_C2,use_container_width=True)
 
-                #-------------------------Module 3-----------------------------
+                #Trigram
                 title('Most Popular Three Words',30)
 
-                # header("range")
                 sl_4 = st.slider('Pick Number of Words',5,50,10, key="3")
-
-                # Unigrams - Most Popular One Keyword
-                top_text_bigrams = get_top_text_ngrams(corpus.clean_tweet, ngrams=(3,3), nr=sl_4)
+                
+                top_text_bigrams = get_top_text_ngrams(corpus.Tweets, ngrams=(3,3), nr=sl_4)
                 top_text_bigrams = sorted(top_text_bigrams, key=lambda x:x[1], reverse=False)
                 x, y = zip(*top_text_bigrams)
                 bar_C3 = px.bar(x=y,y=x, color=y, labels={'x':'Number of words','y':'Words','color':'frequency'}, title='Most Popular Three Word', text=y,color_continuous_scale='Plotly3_r')
