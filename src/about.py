@@ -25,22 +25,25 @@ def app():
     with home_col_3:
         st.write("")
 
-    st.markdown("A video about the floods in 2021/2022")
+    st.markdown("A video about the floods in 2021/2022:")
 
-    abt_col_1, abt_col_2, abt_col_3 = st.columns([0.1,5,0.1])
+     abt_col_1, abt_col_2, abt_col_3, abt_col_4,abt_col_5 = st.columns([0.1,2,1,1.5,1])
     with abt_col_1:
         st.write("")
     with abt_col_2:
         st.video("https://www.youtube.com/watch?v=N6q5iVFxAlc")
     with abt_col_3:
         st.write("")
+    with abt_col_4:
+        st.write("")
+    with abt_col_5:
+        st.write("")
     
     st.markdown("""
     <h2 style="font-weight:bolder;font-size:20px;color:#216fdb;text-align:left;">Sentiment & Emotion Flood Detection through Twitter</h2>
     
-    This project aims to build a sentiment & emotion analyzer about floods. 
-    The application can analyze how Malaysians react to the floods and what are their emotions. 
-    The application can also analyze the emotion from the user input text. 
+    This project was aimed to build a sentiment & emotion text analyzer about floods. 
+    The dashboard can analyze how Malaysians react to the annual floods and what are their emotions. 
     
     <h2 style="font-weight:bolder;font-size:20px;color:#216fdb;text-align:left;">Objectives</h2>
 
@@ -64,29 +67,27 @@ def app():
         
     <h2 style="font-weight:bolder;font-size:20px;color:#216fdb;text-align:left;">Stakeholders</h2>
 
-    <p>Anyone can use this App completely for free! The target users include the general public who are concerned about floods, emergency response non-profit organizations and governmental bodies such as the Ministry Of Natural Resources, Environment And Climate Change.
- 
-    <h2 style="font-weight:bolder;font-size:20px;color:#216fdb;text-align:left;">Features</h2>
-    
-    + Sentiment & Emotion Prediction
-    + Data Exploration and Analysis
-    + Monitoring Application
+    The target users include:
+    + General Public who are concerned about floods
+    + Emergency Response Non-Profit Organizations (Mercy Malaysia; CREST Malaysia; Malaysian Red Crescent Society) 
+    + Governmental Bodies (NADMA; Ministry Of Natural Resources, Environment And Climate Change)
 
     <h2 style="font-weight:bolder;font-size:20px;color:#216fdb;text-align:left;">Dataset</h2>
 
-    The dataset used in this project is scraped from Twitter using Twitter API.     
+    The datasets used in this project is scraped from Twitter using Twitter API.     
     To access the dataset:   
-    https://drive.google.com/drive/folders/...
+    [English Dataset](https://drive.google.com/file/d/1U4ZgsQIhThBzvf26UK7er6mcWc4Z_aY-/view?usp=sharing)
+    [Malay Dataset](https://drive.google.com/file/d/1Pvbf16V5SwidUbCDtxtLme0RyLCdEQK9/view?usp=sharing)
 
     <h2 style="font-weight:bolder;font-size:20px;color:#216fdb;text-align:left;">Source Code</h2>
-
-    https://github.com/darylGan/Emocean
+    
+    To access the source code:
+    [Source Code](https://github.com/darylGan/Emocean)
     
     <h2 style="font-weight:bolder;font-size:20px;color:#216fdb;text-align:left;">About the Developer</h2>
+    
     3rd year Bachelor of Computer Science (Data Science) student at University of Malaya
-    
     <br/>
-    
-    Made in [Streamlit](https://www.streamlit.io/) &nbsp, by Daryl Gan &nbsp | &nbsp [GitHub](https://github.com/darylGan) &nbsp | &nbsp [LinkedIn](https://www.linkedin.com/in/daryl-gan-/)
+    Made in [Streamlit](https://www.streamlit.io/), by Daryl Gan | [GitHub](https://github.com/darylGan) | [LinkedIn](https://www.linkedin.com/in/daryl-gan-/)
 
     """, unsafe_allow_html=True)
