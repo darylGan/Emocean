@@ -46,7 +46,7 @@ eng_flood_model = joblib.load("models/english_flood_related_mnb.pkl","r")
 
 def predictFlood(docx):
     results = eng_flood_model.predict([docx])
-    return results
+    return results[0]
 #Flood Analyzer
 
 
@@ -130,9 +130,12 @@ def app():
         prediction = pd.DataFrame(probability.idxmax(axis=1))
 
         with col2:
-            floodValue = testing.loc[0][0]
-            st.write(floodValue)
             st.success("Prediction")
+            if testing == 0:
+                st.write("Non-Flood Related)
+            else:
+                st.write("Flood Related)         
+            st.write(testing)
             value = prediction.loc[0][0]
             emoji_icon = emotions_emoji_dict[value]
             st.write("{}:{}".format(value,emoji_icon))
