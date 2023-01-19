@@ -16,7 +16,7 @@ def app():
     
     prediction_count = df_emotions['Emotion'].value_counts().rename_axis('Emotion').reset_index(name='Count')
 
-    bar_CC = px.bar(prediction_count, x='Emotion', y='Count', color='Prediction', color_discrete_sequence=px.colors.qualitative.T10)
+    bar_CC = px.bar(prediction_count, x='Emotion', y='Count', color='Emotion', color_discrete_sequence=px.colors.qualitative.T10)
     bar_CC.update_xaxes()
     bar_CC.update_layout()
     st.plotly_chart(bar_CC,use_container_width=True)
