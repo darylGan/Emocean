@@ -42,7 +42,7 @@ def cleantext(docx):
 
 emotions_emoji_dict = {"anger":"😡","anticipation":"🤔","disgust":"🤢","fear":"😨","joy":"😂","sadness":"😔","surprise":"😲","trust":"🤗"}
 
-dfEng = pd.read_pickle(datasets/"DSPEnglishTweetsCleanedV2.pkl")
+dfEng = pd.read_pickle("datasets/DSPEnglishTweetsCleanedV2.pkl")
 
 dfEng_subset = dfEng[dfEng['neutral'] != 1]
 train, test = train_test_split(dfEng_subset, shuffle=True, test_size=0.2, random_state=42)
