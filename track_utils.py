@@ -1,29 +1,12 @@
-# Load Database Pkg
 import sqlite3
 conn = sqlite3.connect('data.db', check_same_thread=False)
 c = conn.cursor()
 
-
-# Fxn
-# def create_page_visited_table():
-# 	c.execute('CREATE TABLE IF NOT EXISTS pageTrackTable(pagename TEXT,timeOfvisit TIMESTAMP)')
-
-# def add_page_visited_details(pagename,timeOfvisit):
-# 	c.execute('INSERT INTO pageTrackTable(pagename,timeOfvisit) VALUES(?,?)',(pagename,timeOfvisit))
-# 	conn.commit()
-
-# def view_all_page_visited_details():
-# 	c.execute('SELECT * FROM pageTrackTable')
-# 	data = c.fetchall()
-# 	return data
-
-
-# Fxn To Track Input & Prediction
 def create_emotionclf_table():
-	c.execute('CREATE TABLE IF NOT EXISTS emotionclfTable(rawtext TEXT,prediction TEXT,probability NUMBER,timeOfvisit TIMESTAMP)')
+	c.execute('CREATE TABLE IF NOT EXISTS emotionclfTable(Input_Text TEXT,Emotion TEXT,Score NUMBER,Time_of_Visit TIMESTAMP)')
 
-def add_prediction_details(rawtext,prediction,probability,timeOfvisit):
-	c.execute('INSERT INTO emotionclfTable(rawtext,prediction,probability,timeOfvisit) VALUES(?,?,?,?)',(rawtext,prediction,probability,timeOfvisit))
+def add_prediction_details(Input_Text,Emotion,Score,Time_of_Visit):
+	c.execute('INSERT INTO emotionclfTable(Input_Text,Emotion,Score,Time_of_Visit) VALUES(?,?,?,?)',(Input_Text,Emotion,Score,Time_of_Visit))
 	conn.commit()
 
 def view_all_prediction_details():
