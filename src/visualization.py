@@ -119,7 +119,7 @@ def app():
                     return("hsl(240,100%%, %d%%)" % np.random.randint(45,55))
 
                 english_wc = WordCloud(stopwords=stop_words, background_color="white", color_func = grey_color_func,
-                               max_font_size=150, random_state=42, max_words=50, collocations=False)
+                               max_font_size=150, random_state=42, max_words=sl, collocations=False)
 
                 plt.rcParams['figure.figsize'] = [20, 20]
 
