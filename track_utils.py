@@ -2,6 +2,7 @@ import sqlite3
 conn = sqlite3.connect('data.db', check_same_thread=False)
 c = conn.cursor()
 
+# Fxn To Track Input & Prediction
 def create_emotionclf_table():
 	c.execute('CREATE TABLE IF NOT EXISTS emotionclfTable(rawtext TEXT,prediction TEXT,probability NUMBER,timeOfvisit TIMESTAMP)')
 
@@ -12,4 +13,4 @@ def add_prediction_details(rawtext,prediction,probability,timeOfvisit):
 def view_all_prediction_details():
 	c.execute('SELECT * FROM emotionclfTable ORDER BY timeOfvisit DESC')
 	data = c.fetchall()
-	return
+	return data
