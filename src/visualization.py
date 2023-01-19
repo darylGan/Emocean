@@ -81,20 +81,16 @@ def app():
     with st.container():
         col_1, col_2, col_3, col_4 = st.columns([2,0.5,7,1])
         with col_1:
-            space(1)
             choiceSelection = st.radio("Choose a Visualization", ("Emotion Distribution","Emotion Word Cloud","Common Words")) 
 
         with col_3:
             space(2)
             if choiceSelection=="Emotion Distribution":
-                title('Distribution of Emotions',30)
-                # ---------------------- Emotion Bar Chart ---------------------
-                emotion_count = df['emotion'].value_counts().rename_axis('Emotions').reset_index(name='Counts')
-                bar_CC = px.bar(emotion_count, x='Emotions', y='Counts', color='Emotions', color_discrete_sequence=px.colors.sequential.Plotly3)
-                # bar_CC.update_xaxes(tickangle=0)
-                bar_CC.update_layout(height=450) #margin_t=10,margin_b=150,
-                st.plotly_chart(bar_CC,use_container_width=True)
+                title('Distribution of the Number of Emotions per English Tweet',30)
 
+                bar_CC = px.bar(df['emotion_count'], x='Number of Emotions', y='Number of Tweets', color='Number of Emotions', color_discrete_sequence=px.colors.sequential.Plotly3)
+                bar_CC.update_layout(height=450)
+                st.plotly_chart(bar_CC,use_container_width=True)
 
             elif choiceSelection=="Emotion Word Cloud":
                 #--------------------------WORD_CLOUD---------------------------
