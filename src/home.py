@@ -6,9 +6,7 @@ import numpy as np
 import neattext as nt
 from neattext.functions import clean_text
 import joblib
-from sklearn.feature_extraction import text 
-# from PIL import Image
-# import altair as alt
+from sklearn.feature_extraction import text
 
 def space(num_lines=1):
     """Adds empty lines to the Streamlit app."""
@@ -146,6 +144,8 @@ def app():
 
     with col_1:
         st.write()
+    
+    st.image("images/name.png")
     
     with col_2:
         st.subheader("Text Emotion Analyzer")
