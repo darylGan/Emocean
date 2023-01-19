@@ -150,7 +150,7 @@ def app():
 
                 st.plotly_chart(bar_C1,use_container_width=True)
                 
-                space(3)
+                space(5)
 
                 #Bigram
                 title('Most Common Two English Keywords (Bigram)',30)
@@ -166,7 +166,7 @@ def app():
 
                 st.plotly_chart(bar_C2,use_container_width=True)
                 
-                space(3)
+                space(5)
 
                 #Trigram
                 title('Most Common Three English Keywords (Trigram)',30)
