@@ -41,6 +41,16 @@ def cleantext(docx):
     cleanDocx = ' '.join(term for term in cleanDocx.split() if term not in english_stop_words)
     return cleanDocx
 
+#Flood Analyzer
+eng_flood_model = joblib.load("models/english_flood_related_mnb.pkl","r")
+
+def predictFlood(docx):
+    results = eng_flood_model.predict([docx])
+    return results
+#Flood Analyzer
+
+
+#Emotion Analyzer
 emotions_emoji_dict = {"anger":"😡","anticipation":"🤔","disgust":"🤢","fear":"😨","joy":"😂","sadness":"😔","surprise":"😲","trust":"🤗"}
 
 dfEng = pd.read_pickle("datasets/DSPEnglishTweetsCleanedV2.pkl")
@@ -48,10 +58,8 @@ dfEng = pd.read_pickle("datasets/DSPEnglishTweetsCleanedV2.pkl")
 from sklearn.model_selection import train_test_split
 dfEng_subset = dfEng[dfEng['neutral'] != 1]
 train, test = train_test_split(dfEng_subset, shuffle=True, test_size=0.2, random_state=42)
-
 X_emotion_train = train['Tweets']
 y_emotion_train = train[['anger', 'anticipation', 'disgust', 'fear', 'joy', 'sadness', 'surprise', 'trust']]
-
 X_emotion_test = test['Tweets']
 y_emotion_test = test[['anger', 'anticipation', 'disgust', 'fear', 'joy', 'sadness', 'surprise', 'trust']]
 
@@ -66,6 +74,7 @@ def get_prediction_proba(docx):
         test_y_prob = eng_emotion_model.predict_proba([docx])[:,1]
         results[label] = test_y_prob
     return results
+#Emotion Analyzer
 
 def app():
     st.markdown(f'<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">', unsafe_allow_html=True)
@@ -115,16 +124,18 @@ def app():
     if submit_text:
         col1, col2, col3, col4 = st.columns([1,2,4,1])
 
-        # Apply Prediction Funtion Here
+        # Prediction Funtions
+        testing = predictFlood(cleanDocx)
         probability = get_prediction_proba(cleanDocx)
         prediction = pd.DataFrame(probability.idxmax(axis=1))
 
         with col2:
+            st.write(testing)
             st.success("Prediction")
             value = prediction.loc[0][0]
             emoji_icon = emotions_emoji_dict[value]
             st.write("{}:{}".format(value,emoji_icon))
-            st.write("Score:{:.0%}".format(np.max(probability.to_numpy())))
+            st.write("Emotion Score:{:.0%}".format(np.max(probability.to_numpy())))
             add_prediction_details(raw_text,value,np.max(probability.to_numpy()),datetime.now())
             
         with col3:
