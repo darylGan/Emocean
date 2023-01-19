@@ -54,7 +54,7 @@ def app():
     df = load_data()
     corpus = load_corpus()
     dtm = load_dtm()
-    
+        
     st.title("Explore Emotions of Flood")
     space(1)
     st.markdown("""
@@ -104,7 +104,7 @@ def app():
                 st.pyplot(fig)
 
             elif choiceSelection=="Emotion Word Cloud":
-                print(dtm)
+                st.write(dtm)
                 title('Emotion Word Cloud',30)
 
                 sl = st.slider('Choose Number of Words',50,200)
