@@ -22,10 +22,11 @@ def get_prediction_proba(docx):
     results = pipe_lr.predict_proba([docx])
     return results
 
-english_custom_stopword_list = ['you know','i mean','yo','dude','couldnt','cant','dont','doesnt','youve','im','ive','wasnt','mightnt','hadnt','hvnt','youre','wouldnt','shouldnt','arent','isnt','werent','youll','its','thats','know','people','amp','time','need','like','year','term','risk','work','gonna','gon na','u','na','sri','dm','tl','bc','cause','ya','w','taman','muda','shah','alam','hulu','langat']
-english_stopwords = text.ENGLISH_STOP_WORDS.union(english_custom_stopword_list)
-english_common_words = ['flood', 'help', 'come', 'day', 'feel', 'let', 'love', 'stay', 'water', 'victim', 'make', 'think', 'god', 'want', 'guy', 'bad', 'pls', 'malaysia', 'today', 'tweet', 'open', 'life', 'really', 'say', 'safe', 'pray', 'rain']
-english_stopwords = english_stopwords.union(english_common_words)
+add_stop_words = ['covid', 'long', 'vaccine', 'know', 'people', 'amp', 'time', 'need', 'like', 'year', 'term', 'risk', 'vaccinate', 'symptom','work']
+stop_words = text.ENGLISH_STOP_WORDS.union(add_stop_words)
+
+custom_stop_word_list = ['you know','i mean','yo','dude','couldnt','cant','dont','doesnt','youve',"im",'ive','wasnt','mightnt','hadnt','hvnt','youre','wouldnt','shouldnt','arent','isnt','werent','youll','its','thats', 'covid', 'long', 'vaccine', 'know', 'people', 'amp', 'time', 'need', 'like','year', 'term', 'risk', 'vaccinate', 'symptom', 'work', 'gonna', "gon na", "gon", "na"]
+stop_words = stop_words.union(custom_stop_word_list)
 
 def cleantext(docx):
     docxFrame = nt.TextFrame(text=docx)
