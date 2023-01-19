@@ -22,6 +22,11 @@ def load_corpus():
     data = pd.read_pickle("datasets/DSPEnglishTweetsCorpus.pkl")
     return data
 
+@st.cache(allow_output_mutation=True)
+def load_dtm():
+    data = pd.read_pickle("datasets/DSPEnglishTweetsDTMv2.pkl")
+    return data
+
 @st.cache(persist=True,suppress_st_warning=True)
 def get_top_text_ngrams(corpus, ngrams=(1,1), nr=None):
     vec = CountVectorizer(stop_words=stop_words, ngram_range=ngrams).fit(corpus)
@@ -47,6 +52,7 @@ def app():
 
     df = load_data()
     corpus = load_corpus()
+    dtm = load_dtm()
     
     st.title("Explore Emotions of Flood")
     space(1)
@@ -109,7 +115,7 @@ def app():
 
                 full_names = emotion = ['anger', 'anticipation', 'disgust', 'fear', 'joy', 'sadness', 'surprise', 'trust']
 
-                for index, emotion in enumerate(corpus.columns):
+                for index, emotion in enumerate(dtm.columns):
                     wc.generate(corpus.Tweets[emotion])
 
                     plt.subplot(4, 2, index+1)
