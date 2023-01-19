@@ -44,6 +44,7 @@ emotions_emoji_dict = {"anger":"😡","anticipation":"🤔","disgust":"🤢","fe
 
 dfEng = pd.read_pickle("datasets/DSPEnglishTweetsCleanedV2.pkl")
 
+from sklearn.model_selection import train_test_split
 dfEng_subset = dfEng[dfEng['neutral'] != 1]
 train, test = train_test_split(dfEng_subset, shuffle=True, test_size=0.2, random_state=42)
 
