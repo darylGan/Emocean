@@ -91,7 +91,7 @@ def app():
         
         #Malay
         space(5)
-        st.subheader("Penganalisis Sentimen & Emosi Teks")
+        st.subheader("Penganalisis Teks Banjir & Sentimen & Emosi")
         space(1)
         st.markdown("**Arahan:** Masukkan Teks")
 

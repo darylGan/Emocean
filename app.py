@@ -34,19 +34,19 @@ from src import home, rumah, visualization, monitor, userManual, about
 
 MENU = {
     "Home" : home,
-    "Malay" : rumah,
+    "Versi Melayu" : rumah,
     "Explore" : visualization,
-    "Monitor" : monitor,
+    "Analyzer Log" : monitor,
     "User Manual" : userManual,
     "About" : about,
 }
 
 def main():
     menu_data = [
-        {'icon': "bi bi-translate", 'label':"Malay"},
+        {'icon': "bi bi-translate", 'label':"Versi Melayu"},
         {'icon': "bi bi-bar-chart-line-fill", 'label':"Explore"},
-        {'icon': "bi bi-tv-fill",'label':"Monitor"},
-        {'icon': "bi bi-file-earmark-text-fill", 'label':"User Manual"},
+        {'icon': "bi bi-clock-history",'label':"Analyzer Log"},
+        {'icon': "bi bi-person-circle", 'label':"User Manual"},
         {'icon': "bi bi-info-circle-fill", 'label':"About"}, 
     ]
 

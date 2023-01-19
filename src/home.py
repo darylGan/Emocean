@@ -94,7 +94,7 @@ def app():
         st.markdown('<h1 style="font-weight:10;font-size: 50px;font-family:Source Sans Pro, sans-serif;text-align:center;">Sentiment & Emotion-based Flood Detection through Twitter</h1>',unsafe_allow_html=True)
         
         space(2)
-        st.subheader("Text Sentiment & Emotion Analyzer")
+        st.subheader("Flood & Sentiment & Emotion Text Analyzer")
         space(1)
         st.markdown("**Instructions:** Enter Text")
 

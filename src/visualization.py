@@ -54,7 +54,7 @@ def app():
     df = load_data()
     corpus = load_corpus()
     dtm = load_dtm()
-    
+        
     st.title("Explore Emotions of Flood")
     space(1)
     st.markdown("""
@@ -104,87 +104,80 @@ def app():
                 st.pyplot(fig)
 
             elif choiceSelection=="Emotion Word Cloud":
-                title('Emotion Word Cloud',30)
+                title('English Emotion Word Cloud',30)
+                
+                sl = st.slider('Choose Number of Words',10,100)
+                
+                english_data = pd.read_pickle("datasets/DSPEnglishTweetsDTM.pkl")
+                english_data = english_data.transpose()
+                english_data
+                
+                english_data_clean = pd.read_pickle("datasets/DSPEnglishTweetsCorpus.pkl")
+                english_data_clean.index = ['anger', 'anticipation', 'disgust', 'fear', 'joy', 'sadness', 'surprise', 'trust']
 
-                sl = st.slider('Choose Number of Words',50,200)
-
-for index, emotion in enumerate(english_data.columns):
-    english_wc.generate(english_data_clean.Tweets[emotion])
-    
-    plt.subplot(3, 4, index+1)
-    plt.imshow(english_wc, interpolation="bilinear")
-    plt.axis("off")
-    plt.title(full_names[index], fontsize = 20)
-    
-plt.show()
- 
                 def grey_color_func(word, font_size, position, orientation, random_state=None, **kwargs):
                     return("hsl(240,100%%, %d%%)" % np.random.randint(45,55))
 
-                wc = WordCloud(stopwords=stop_words, background_color="white", color_func=grey_color_func, max_font_size=150, random_state=42, max_words=sl, collocations=False)
+                english_wc = WordCloud(stopwords=stop_words, background_color="white", color_func = grey_color_func,
+                               max_font_size=150, random_state=42, max_words=sl, collocations=False)
 
                 plt.rcParams['figure.figsize'] = [20, 20]
 
                 full_names = emotion = ['anger', 'anticipation', 'disgust', 'fear', 'joy', 'sadness', 'surprise', 'trust']
 
-                for index, emotion in enumerate(dtm.columns):
-                    wc.generate(corpus.Tweets[emotion])
+                for index, emotion in enumerate(english_data.columns):
+                    english_wc.generate(english_data_clean.Tweets[emotion])
 
                     plt.subplot(4, 2, index+1)
-                    plt.imshow(wc, interpolation="bilinear")
+                    plt.imshow(english_wc, interpolation="bilinear")
                     plt.axis("off")
-                    plt.title(full_names[index], fontsize = 20)
+                    plt.title(full_names[index], fontsize = 30)
 
                 st.pyplot()
 
             elif choiceSelection=="Common Words":
-                #-------------------------Module 1-----------------------------
-                title('Most Popular One Word',30)
-                # st.caption('removing all the stop words in the sense common words.')
-
+                #Unigram
+                title('Most Common One English Keyword (Unigram)',30)
+                
                 sl_2 = st.slider('Pick Number of Words',5,50,10, key="1")
 
-                # Unigrams - Most Popular One Keyword
-                top_text_bigrams = get_top_text_ngrams(corpus.clean_tweet, ngrams=(1,1), nr=sl_2)
-                top_text_bigrams = sorted(top_text_bigrams, key=lambda x:x[1], reverse=False)
-                x, y = zip(*top_text_bigrams)
-                bar_C1 = px.bar(x=y,y=x, color=y, labels={'x':'Number of words','y':'Words','color':'frequency'}, title='Most Popular One Word', text=y, color_continuous_scale=px.colors.sequential.Plotly3[::-1])
+                top_text_unigrams = get_top_text_ngrams(df.Tweets, ngrams=(1,1), nr=sl_2)
+                top_text_unigrams = sorted(top_text_unigrams, key=lambda x:x[1], reverse=False)
+                x, y = zip(*top_text_unigrams)
+                bar_C1 = px.bar(x=y, y=x, color=y, labels={'x':'Frequency','y':'Words','color':'frequency'}, title='Most Popular One Word', text=y, color_continuous_scale=px.colors.sequential.Plotly3[::-1])
                 bar_C1.update_traces(textposition="outside", cliponaxis=False)
                 bar_C1.update_yaxes(dtick=1, automargin=True)
 
                 st.plotly_chart(bar_C1,use_container_width=True)
+                
+                space(5)
 
-                #-------------------------Module 2-----------------------------
-                title('Most Popular Two Words',30)
+                #Bigram
+                title('Most Common Two English Keywords (Bigram)',30)
 
                 sl_3 = st.slider('Pick Number of Words',5,50,10, key="2")
 
-                # Unigrams - Most Popular One Keyword
-                top_text_bigrams = get_top_text_ngrams(corpus.clean_tweet, ngrams=(2,2), nr=sl_3)
+                top_text_bigrams = get_top_text_ngrams(df.Tweets, ngrams=(2,2), nr=sl_3)
                 top_text_bigrams = sorted(top_text_bigrams, key=lambda x:x[1], reverse=False)
                 x, y = zip(*top_text_bigrams)
-                bar_C2 = px.bar(x=y,y=x, color=y, labels={'x':'Number of words','y':'Words','color':'frequency'}, title='Most Popular Two Word', text=y, color_continuous_scale='Plotly3_r')
+                bar_C2 = px.bar(x=y, y=x, color=y, labels={'x':'Number of words','y':'Words','color':'frequency'}, title='Most Popular Two Words', text=y, color_continuous_scale='Plotly3_r')
                 bar_C2.update_traces(textposition="outside", cliponaxis=False)
                 bar_C2.update_yaxes(dtick=1, automargin=True)
 
                 st.plotly_chart(bar_C2,use_container_width=True)
+                
+                space(5)
 
-                #-------------------------Module 3-----------------------------
-                title('Most Popular Three Words',30)
+                #Trigram
+                title('Most Common Three English Keywords (Trigram)',30)
 
-                # header("range")
                 sl_4 = st.slider('Pick Number of Words',5,50,10, key="3")
-
-                # Unigrams - Most Popular One Keyword
-                top_text_bigrams = get_top_text_ngrams(corpus.clean_tweet, ngrams=(3,3), nr=sl_4)
-                top_text_bigrams = sorted(top_text_bigrams, key=lambda x:x[1], reverse=False)
-                x, y = zip(*top_text_bigrams)
-                bar_C3 = px.bar(x=y,y=x, color=y, labels={'x':'Number of words','y':'Words','color':'frequency'}, title='Most Popular Three Word', text=y,color_continuous_scale='Plotly3_r')
+                
+                top_text_trigrams = get_top_text_ngrams(df.Tweets, ngrams=(3,3), nr=sl_4)
+                top_text_trigrams = sorted(top_text_trigrams, key=lambda x:x[1], reverse=False)
+                x, y = zip(*top_text_trigrams)
+                bar_C3 = px.bar(x=y,y=x, color=y, labels={'x':'Number of words','y':'Words','color':'frequency'}, title='Most Popular Three Words', text=y,color_continuous_scale='Plotly3_r')
                 bar_C3.update_traces(textposition="outside", cliponaxis=False)
                 bar_C3.update_yaxes(dtick=1, automargin=True)
 
-                st.plotly_chart(bar_C3,use_container_width=True) 
-        
-        with col_4:
-            st.write("")
-            space(2)
+                st.plotly_chart(bar_C3,use_container_width=True)     
