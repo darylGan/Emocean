@@ -144,7 +144,7 @@ def app():
             else:
                 st.write("Flood Related")         
             
-            st.write(testingSentiment)
+            st.write("Sentiment:{}".format(testingSentiment))
             
             value = prediction.loc[0][0]
             emoji_icon = emotions_emoji_dict[value]
