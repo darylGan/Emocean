@@ -141,7 +141,7 @@ def app():
                 
                 sl_2 = st.slider('Pick Number of Words',5,50,10, key="1")
 
-                top_text_unigrams = get_top_text_ngrams(corpus.Tweets, ngrams=(1,1), nr=sl_2)
+                top_text_unigrams = get_top_text_ngrams(df.Tweets, ngrams=(1,1), nr=sl_2)
                 top_text_unigrams = sorted(top_text_unigrams, key=lambda x:x[1], reverse=False)
                 x, y = zip(*top_text_unigrams)
                 bar_C1 = px.bar(x=y, y=x, color=y, labels={'x':'Frequency','y':'Words','color':'frequency'}, title='Most Popular One Word', text=y, color_continuous_scale=px.colors.sequential.Plotly3[::-1])
@@ -157,7 +157,7 @@ def app():
 
                 sl_3 = st.slider('Pick Number of Words',5,50,10, key="2")
 
-                top_text_bigrams = get_top_text_ngrams(corpus.Tweets, ngrams=(2,2), nr=sl_3)
+                top_text_bigrams = get_top_text_ngrams(df.Tweets, ngrams=(2,2), nr=sl_3)
                 top_text_bigrams = sorted(top_text_bigrams, key=lambda x:x[1], reverse=False)
                 x, y = zip(*top_text_bigrams)
                 bar_C2 = px.bar(x=y, y=x, color=y, labels={'x':'Number of words','y':'Words','color':'frequency'}, title='Most Popular Two Words', text=y, color_continuous_scale='Plotly3_r')
@@ -173,7 +173,7 @@ def app():
 
                 sl_4 = st.slider('Pick Number of Words',5,50,10, key="3")
                 
-                top_text_trigrams = get_top_text_ngrams(corpus.Tweets, ngrams=(3,3), nr=sl_4)
+                top_text_trigrams = get_top_text_ngrams(df.Tweets, ngrams=(3,3), nr=sl_4)
                 top_text_trigrams = sorted(top_text_trigrams, key=lambda x:x[1], reverse=False)
                 x, y = zip(*top_text_trigrams)
                 bar_C3 = px.bar(x=y,y=x, color=y, labels={'x':'Number of words','y':'Words','color':'frequency'}, title='Most Popular Three Words', text=y,color_continuous_scale='Plotly3_r')
