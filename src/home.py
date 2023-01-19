@@ -125,6 +125,7 @@ def app():
             emoji_icon = emotions_emoji_dict[value]
             st.write("{}:{}".format(value,emoji_icon))
             st.write("Score:{:.0%}".format(np.max(probability.to_numpy())))
+            add_prediction_details(raw_text,value,np.max(probability.to_numpy()),datetime.now())
             
         with col3:
             st.success("Emotion Score")
@@ -135,9 +136,10 @@ def app():
             import plotly.express as px 
             bar_CC = px.bar(porba_df_clean, x='emotions', y='probability', color='emotions',color_discrete_sequence=px.colors.qualitative.T10)
 
-            bar_CC.update_xaxes() #tickangle=0
-            bar_CC.update_layout() #margin_t=10,margin_b=150
+            bar_CC.update_xaxes()
+            bar_CC.update_layout()
             st.plotly_chart(bar_CC,use_container_width=True)
+            
     else:
         with col_2: 
             st.write("*Click 'Analyze' Button*")
