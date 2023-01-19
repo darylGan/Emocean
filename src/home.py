@@ -121,9 +121,10 @@ def app():
 
         with col2:
             st.success("Prediction")
-            emoji_icon = emotions_emoji_dict[prediction]
-            st.write("{}:{}".format(prediction,emoji_icon))
-            st.write("Score:{:.0%}".format(probability[prediction]))
+            value = prediction.loc[0][0]
+            emoji_icon = emotions_emoji_dict[value]
+            st.write("{}:{}".format(value,emoji_icon))
+            st.write("Score:{:.0%}".format(probability[value]))
             
         with col3:
             st.success("Emotion Score")
