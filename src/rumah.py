@@ -113,7 +113,7 @@ def app():
     
     with col_2:
         st.image("images/name.png")
-        st.markdown('<h1 style="font-weight:10;font-size: 50px;font-family:Source Sans Pro, sans-serif;text-align:center;">Sentiment & Emotion-based Flood Detection through Twitter</h1>',unsafe_allow_html=True)
+        st.markdown('<h1 style="font-weight:10;font-size: 50px;font-family:Source Sans Pro, sans-serif;text-align:center;">Pengesanan Banjir berasaskan Sentimen & Emosi melalui Twitter</h1>',unsafe_allow_html=True)
         
         #Malay
         space(5)
@@ -153,7 +153,7 @@ def app():
             
         with col__3:
             st.success("Skor Emosi")
-            proba_df = probability
+            proba_df = probabilityMly
             porba_df_clean = proba_df.T.reset_index()
             porba_df_clean.columns = ["emosi","kebarangkalian"]
 
