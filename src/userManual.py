@@ -9,7 +9,7 @@ def app():
     st.markdown("""
     <h2 style="font-weight:bolder;font-size:30px;color:#216fdb;text-align:left;">User Manual Document</h2>
 
-    <p>To find out more details about this application, please refer to this <a target="_blank" href="https://docs.google.com/document/d/12_aUNN3ZhXQToI7sO_oz-BrzzJM7o0pR2rhIel349EU/edit?usp=sharing">user manual.</a></p>
+    <p>To find out more details about this application, please refer to this <a target="_blank" href="https://drive.google.com/file/d/1-yYgNFvHSfUtbJ-uMhLR-u9RcCLOKU65/view?usp=sharing">user manual.</a></p>
 
     <h2 style="font-weight:bolder;font-size:30px;color:#216fdb;text-align:left;">Home</h2>
 
