@@ -49,6 +49,13 @@ def predictFlood(docx):
     return results[0]
 #Flood Analyzer
 
+#Sentiment Analyzer
+eng_sentiment_model = joblib.load("models/english_sentiment_svm.pkl","r")
+
+def predictSentiment(docx):
+    results = eng_sentiment_model.predict([docx])
+    return results[0]
+#Sentiment Analyzer
 
 #Emotion Analyzer
 emotions_emoji_dict = {"anger":"😡","anticipation":"🤔","disgust":"🤢","fear":"😨","joy":"😂","sadness":"😔","surprise":"😲","trust":"🤗"}
@@ -126,6 +133,7 @@ def app():
 
         # Prediction Funtions
         testing = predictFlood(cleanDocx)
+        testingSentiment = predictSentiment(cleanDocx)
         probability = get_prediction_proba(cleanDocx)
         prediction = pd.DataFrame(probability.idxmax(axis=1))
 
@@ -135,7 +143,9 @@ def app():
                 st.write("Non-Flood Related")
             else:
                 st.write("Flood Related")         
-                
+            
+            st.write(testingSentiment)
+            
             value = prediction.loc[0][0]
             emoji_icon = emotions_emoji_dict[value]
             st.write("{}:{}".format(value,emoji_icon))
