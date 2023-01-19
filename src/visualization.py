@@ -119,11 +119,11 @@ def app():
 
                 full_names = emotion = ['anger', 'anticipation', 'disgust', 'fear', 'joy', 'sadness', 'surprise', 'trust']
                 
-                english_data = pd.read_pickle('DSPEnglishTweetsDTM.pkl')
+                english_data = pd.read_pickle("datasets/DSPEnglishTweetsDTM.pkl")
                 english_data = english_data.transpose()
                 english_data
                 
-                english_data_clean = pd.read_pickle('DSPEnglishTweetsCorpus.pkl')
+                english_data_clean = pd.read_pickle("datasets/DSPEnglishTweetsCorpus.pkl")
                 
                 for index, emotion in enumerate(english_data.columns):
                     wc.generate(english_data_clean.Tweets[emotion])
