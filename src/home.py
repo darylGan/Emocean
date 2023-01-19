@@ -15,12 +15,13 @@ def space(num_lines=1):
 
 st.set_option('deprecation.showPyplotGlobalUse', False)
 
+#Stop Words
 add_stop_words = ['you know','i mean','yo','dude','couldnt','cant','dont','doesnt','youve','im','ive','wasnt','mightnt','hadnt','hvnt','youre','wouldnt','shouldnt','arent','isnt','werent','youll','its','thats','know','people','amp','time','need','like','year','term','risk','work','gonna','gon na','u','na','sri','dm','tl','bc','cause','ya','w','taman','muda','shah','alam','hulu','langat']
 english_stop_words = text.ENGLISH_STOP_WORDS.union(add_stop_words)
 custom_stop_word_list = ['flood', 'help', 'come', 'day', 'feel', 'let', 'love', 'stay', 'water', 'victim', 'make', 'think', 'god', 'want', 'guy', 'bad', 'pls', 'malaysia', 'today', 'tweet', 'open', 'life', 'really', 'say', 'safe', 'pray', 'rain']
 english_stop_words = english_stop_words.union(custom_stop_word_list)
-
 malay_stop_words = ["abdul","abdullah","acara","ada","adalah","ahmad","air","akan","akhbar","akhir","aktiviti","alam","amat", "amerika","anak","anggota","antara","antarabangsa","apa","apabila","april","as","asas","asean","asia","asing","atas","atau","australia","awal","awam","bagaimanapun","bagi","bahagian","bahan","baharu","bahawa","baik","bandar","bank","banyak","barangan","baru","baru-baru","bawah","beberapa","bekas","beliau","belum","berada","berakhir","berbanding","berdasarkan","berharap","berikutan","berjaya","berjumlah","berkaitan","berkata","berkenaan","berlaku","bermula","bernama","bernilai","bersama","berubah","besar","bhd","bidang","bilion","bn","boleh","bukan","bulan","bursa","cadangan","china","dagangan","dalam","dan","dana","dapat","dari","daripada","dasar","datang","datuk","demikian","dengan","depan","derivatives","dewan","di","diadakan","dibuka","dicatatkan","dijangka","diniagakan","dis","disember","ditutup","dolar","dr","dua","dunia","ekonomi","eksekutif","eksport","empat","enam","faedah","feb","global","hadapan","hanya","harga","hari","hasil","hingga","hubungan","ia","iaitu","ialah","indeks","india","indonesia","industri","ini","islam","isnin","isu","itu","jabatan","jalan","jan","jawatan","jawatankuasa","jepun","jika","jualan","juga","julai","jumaat","jumlah","jun","juta","kadar","kalangan","kali","kami","kata","katanya","kaunter","kawasan","ke","keadaan","kecil","kedua","kedua-dua","kedudukan","kekal","kementerian","kemudahan","kenaikan","kenyataan","kepada","kepentingan","keputusan","kerajaan","kerana","kereta","kerja","kerjasama","kes","keselamatan","keseluruhan","kesihatan","ketika","ketua","keuntungan","kewangan","khamis","kini","kira-kira","kita","klci","klibor","komposit","kontrak","kos","kuala","kuasa","kukuh","kumpulan","lagi","lain","langkah","laporan","lebih","lepas","lima","lot","luar","lumpur","mac","mahkamah","mahu","majlis","makanan","maklumat","malam","malaysia","mana","manakala","masa","masalah","masih","masing-masing","masyarakat","mata","media","mei","melalui","melihat","memandangkan","memastikan","membantu","membawa","memberi","memberikan","membolehkan","membuat","mempunyai","menambah","menarik","menawarkan","mencapai","mencatatkan","mendapat","mendapatkan","menerima","menerusi","mengadakan","mengambil","mengenai","menggalakkan","menggunakan","mengikut","mengumumkan","mengurangkan","meningkat","meningkatkan","menjadi","menjelang","menokok","menteri","menunjukkan","menurut","menyaksikan","menyediakan","mereka","merosot","merupakan","mesyuarat","minat","minggu","minyak","modal","mohd","mudah","mungkin","naik","najib","nasional","negara","negara-negara","negeri","niaga","nilai","nov","ogos","okt","oleh","operasi","orang","pada","pagi","paling","pameran","papan","para","paras","parlimen","parti","pasaran","pasukan","pegawai","pejabat","pekerja","pelabur","pelaburan","pelancongan","pelanggan","pelbagai","peluang","pembangunan","pemberita","pembinaan","pemimpin","pendapatan","pendidikan","penduduk","penerbangan","pengarah","pengeluaran","pengerusi","pengguna","pengurusan","peniaga","peningkatan","penting","peratus","perdagangan","perdana","peringkat","perjanjian","perkara","perkhidmatan","perladangan","perlu","permintaan","perniagaan","persekutuan","persidangan","pertama","pertubuhan","pertumbuhan","perusahaan","peserta","petang","pihak","pilihan","pinjaman","polis","politik","presiden","prestasi","produk","program","projek","proses","proton","pukul","pula","pusat","rabu","rakan","rakyat","ramai","rantau","raya","rendah","ringgit","rumah","sabah","sahaja","saham","sama","sarawak","satu","sawit","saya","sdn","sebagai","sebahagian","sebanyak","sebarang","sebelum","sebelumnya","sebuah","secara","sedang","segi","sehingga","sejak","sekarang","sektor","sekuriti","selain","selama","selasa","selatan","selepas","seluruh","semakin","semalam","semasa","sementara","semua","semula","sen","sendiri","seorang","sepanjang","seperti","sept","september","serantau","seri","serta","sesi","setiap","setiausaha","sidang","singapura","sini","sistem","sokongan","sri","sudah","sukan","suku","sumber","supaya","susut","syarikat","syed","tahap","tahun","tan","tanah","tanpa","tawaran","teknologi","telah","tempat","tempatan","tempoh","tenaga","tengah","tentang","terbaik","terbang","terbesar","terbuka","terdapat","terhadap","termasuk","tersebut","terus","tetapi","thailand","tiada","tidak","tiga","timbalan","timur","tindakan","tinggi","tun","tunai","turun","turut","umno","unit","untuk","untung","urus","usaha","utama","walaupun","wang","wanita","wilayah","yang","i","so","to","this","for","nya","x","geng","selangor","pahang","a","you","of","my","shah","pon","but","sbb","mcm","time","korang","tp","aja","nang","area","eh","kl","or","kg","gak","kalo","in","pas","sih","gue","udah","jakarta","lg","jd","sih","gw","ku","hulu","langat",'banjir', 'mangsa', 'bantu', 'allah', 'selamat', 'and', 'moga', 'hujan', 'hati', 'tengok', 'ga', 'muda', 'taman', 'please', 'baca', 'raja', 'help', 'stay', 'bencana', 'the', 'org', 'sedih', 'doa']
+#Stop Words
 
 def cleantext(docx):
     docxFrame = nt.TextFrame(text=docx)
@@ -41,23 +42,23 @@ def cleantext(docx):
     cleanDocx = ' '.join(term for term in cleanDocx.split() if term not in english_stop_words)
     return cleanDocx
 
-#Flood Analyzer
+#English Flood Analyzer
 eng_flood_model = joblib.load("models/english_flood_related_mnb.pkl","r")
 
 def predictFlood(docx):
     results = eng_flood_model.predict([docx])
     return results[0]
-#Flood Analyzer
+#English Flood Analyzer
 
-#Sentiment Analyzer
+#English Sentiment Analyzer
 eng_sentiment_model = joblib.load("models/english_sentiment_svm.pkl","r")
 
 def predictSentiment(docx):
     results = eng_sentiment_model.predict([docx])
     return results[0]
-#Sentiment Analyzer
+#English Sentiment Analyzer
 
-#Emotion Analyzer
+#English Emotion Analyzer
 emotions_emoji_dict = {"anger":"😡","anticipation":"🤔","disgust":"🤢","fear":"😨","joy":"😂","sadness":"😔","surprise":"😲","trust":"🤗"}
 
 dfEng = pd.read_pickle("datasets/DSPEnglishTweetsCleanedV2.pkl")
@@ -81,7 +82,7 @@ def get_prediction_proba(docx):
         test_y_prob = eng_emotion_model.predict_proba([docx])[:,1]
         results[label] = test_y_prob
     return results
-#Emotion Analyzer
+#English Emotion Analyzer
 
 def app():
     st.markdown(f'<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">', unsafe_allow_html=True)
@@ -127,6 +128,18 @@ def app():
             raw_text = st.text_area('Type Here: -',"")
             cleanDocx = cleantext(raw_text)
             submit_text = st.form_submit_button(label='Analyze')
+        
+        #Malay
+        space(10)
+        st.subheader("Penganalisis Sentimen & Emosi Teks")
+        space(1)
+        st.markdown("**Arahan:** Masukkan Teks")
+
+        with st.form(key='emotion_form'):
+            raw_text = st.text_area('Taip Di Sini: -',"")
+            cleanDocx = cleantext(raw_text)
+            submit_text = st.form_submit_button(label='Menganalisis')
+        #Malay
 
     if submit_text:
         col1, col2, col3, col4 = st.columns([1,2,4,1])
