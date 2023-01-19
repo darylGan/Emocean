@@ -14,7 +14,7 @@ def app():
     df_emotions = pd.DataFrame(view_all_prediction_details(),columns=['Input Text','Emotion','Score','Time of Visit'])
     st.dataframe(df_emotions, width=800)
     
-    prediction_count = df_emotions['Emotion'].value_counts().rename_axis('Emotion').reset_index(name='Counts')
+    prediction_count = df_emotions['Emotion'].value_counts().rename_axis('Emotion').reset_index(name='Count')
 
     bar_CC = px.bar(prediction_count, x='Emotion', y='Count', color='Prediction', color_discrete_sequence=px.colors.qualitative.T10)
     bar_CC.update_xaxes()
