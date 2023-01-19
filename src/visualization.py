@@ -81,8 +81,8 @@ def app():
     with st.container():
         col_1, col_2, col_3, col_4 = st.columns([2,0.5,7,1])
         with col_1:
-            space(3)
-            choiceSelection = st.radio("Choose a visualization", ("Emotion Distribution","Emotion Word Cloud","Common Words")) 
+            space(1)
+            choiceSelection = st.radio("Choose a Visualization", ("Emotion Distribution","Emotion Word Cloud","Common Words")) 
 
         with col_3:
             space(2)
