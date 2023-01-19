@@ -50,6 +50,14 @@ def predictFlood(docx):
     return results[0]
 #English Flood Analyzer
 
+#Malay Flood Analyzer
+mly_flood_model = joblib.load("models/malay_flood_related_lr.pkl","r")
+
+def predictFloodMly(docx):
+    results = mly_flood_model.predict([docx])
+    return results[0]
+#Malay Flood Analyzer
+
 #English Sentiment Analyzer
 eng_sentiment_model = joblib.load("models/english_sentiment_svm.pkl","r")
 
@@ -58,9 +66,17 @@ def predictSentiment(docx):
     return results[0]
 #English Sentiment Analyzer
 
-#English Emotion Analyzer
+#Malay Sentiment Analyzer
+mly_sentiment_model = joblib.load("models/malay_sentiment_rf.pkl","r")
+
+def predictSentimentMly(docx):
+    results = mly_sentiment_model.predict([docx])
+    return results[0]
+#Malay Sentiment Analyzer
+
 emotions_emoji_dict = {"anger":"😡","anticipation":"🤔","disgust":"🤢","fear":"😨","joy":"😂","sadness":"😔","surprise":"😲","trust":"🤗"}
 
+#English Emotion Analyzer
 dfEng = pd.read_pickle("datasets/DSPEnglishTweetsCleanedV2.pkl")
 
 from sklearn.model_selection import train_test_split
@@ -83,6 +99,29 @@ def get_prediction_proba(docx):
         results[label] = test_y_prob
     return results
 #English Emotion Analyzer
+
+#Malay Emotion Analyzer
+dfMly = pd.read_pickle("datasets/DSPMalayTweetsCleanedV2.pkl")
+
+dfMly_subset = dfMly[dfMly['neutral'] != 1]
+dfMly_train, dfMly_test = train_test_split(dfMly_subset, shuffle=True, test_size=0.2, random_state=42)
+Mly_X_emotion_train = dfMly_train['Tweets']
+Mly_y_emotion_train = dfMly_train[['anger', 'anticipation', 'disgust', 'fear', 'joy', 'sadness', 'surprise', 'trust']]
+Mly_X_emotion_test = dfMly_test['Tweets']
+Mly_y_emotion_test = dfMly_test[['anger', 'anticipation', 'disgust', 'fear', 'joy', 'sadness', 'surprise', 'trust']]
+
+mly_emotion_model = joblib.load("models/malay_emotion_rf.pkl","r")
+
+def get_prediction_probaMly(docx):
+    emotion = ['anger', 'anticipation', 'disgust', 'fear', 'joy', 'sadness', 'surprise', 'trust']
+    results = pd.DataFrame(columns=['anger', 'anticipation', 'disgust', 'fear', 'joy', 'sadness', 'surprise', 'trust'])
+    for label in emotion:
+        mly_emotion_model.fit(Mly_X_emotion_train, dfMly_train[label])
+
+        test_y_prob = mly_emotion_model.predict_proba([docx])[:,1]
+        results[label] = test_y_prob
+    return results
+#Malay Emotion Analyzer
 
 def app():
     st.markdown(f'<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">', unsafe_allow_html=True)
@@ -178,43 +217,43 @@ def app():
         st.markdown("**Arahan:** Masukkan Teks")
 
         with st.form(key='form_emosi'):
-            raw_text = st.text_area('Taip Di Sini: -',"")
-            cleanDocx = cleantext(raw_text)
+            raw_textMly = st.text_area('Taip Sini: -',"")
+            cleanDocxMly = cleantext(raw_textMly)
             submit_malay_text = st.form_submit_button(label='Analisis')
         #Malay
 
-        if submit_english_text:
+        if submit_malay_text:
             col1, col2, col3, col4 = st.columns([1,2,4,1])
 
-            testing = predictFlood(cleanDocx)
-            testingSentiment = predictSentiment(cleanDocx)
-            probability = get_prediction_proba(cleanDocx)
-            prediction = pd.DataFrame(probability.idxmax(axis=1))
+            testingMly = predictFloodMly(cleanDocxMly)
+            testingSentimentMly = predictSentimentMly(cleanDocxMly)
+            probabilityMly = get_prediction_probaMly(cleanDocxMly)
+            predictionMly = pd.DataFrame(probabilityMly.idxmax(axis=1))
 
             with col2:
-                st.success("Prediction")
-                if testing == 0:
-                    st.write("Non-Flood Related")
+                st.success("Ramalan")
+                if testingMly == 0:
+                    st.write("Tidak Berkaitan Banjir")
                 else:
-                    st.write("Flood Related")         
+                    st.write("Berkaitan Banjir")         
             
-                st.write("Sentiment: {}".format(testingSentiment))
+                st.write("Sentimen: {}".format(testingSentimentMly))
             
-                value = prediction.loc[0][0]
-                emoji_icon = emotions_emoji_dict[value]
-                st.write("Emotion: {} {}".format(value,emoji_icon))
-                st.write("Emotion Score: {:.0%}".format(np.max(probability.to_numpy())))
+                valueMly = predictionMly.loc[0][0]
+                emoji_icon = emotions_emoji_dict[valueMly]
+                st.write("Emosi: {} {}".format(valueMly,emoji_icon))
+                st.write("Skor Emosi: {:.0%}".format(np.max(probabilityMly.to_numpy())))
             
-                add_prediction_details(raw_text,value,np.max(probability.to_numpy()),datetime.now())
+                add_prediction_details(raw_textMly,valueMly,np.max(probabilityMly.to_numpy()),datetime.now())
             
             with col3:
-                st.success("Emotion Score")
+                st.success("Skor Emosi")
                 proba_df = probability
                 porba_df_clean = proba_df.T.reset_index()
-                porba_df_clean.columns = ["emotions","probability"]
+                porba_df_clean.columns = ["emosi","kebarangkalian"]
 
                 import plotly.express as px 
-                bar_CC = px.bar(porba_df_clean, x='emotions', y='probability', color='emotions',color_discrete_sequence=px.colors.qualitative.T10)
+                bar_CC = px.bar(porba_df_clean, x='emosi', y='kebarangkalian', color='emosi',color_discrete_sequence=px.colors.qualitative.T10)
 
                 bar_CC.update_xaxes()
                 bar_CC.update_layout()
