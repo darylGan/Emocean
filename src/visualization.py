@@ -107,16 +107,6 @@ def app():
                 title('Emotion Word Cloud',30)
 
                 sl = st.slider('Choose Number of Words',50,200)
-
-for index, emotion in enumerate(english_data.columns):
-    english_wc.generate(english_data_clean.Tweets[emotion])
-    
-    plt.subplot(3, 4, index+1)
-    plt.imshow(english_wc, interpolation="bilinear")
-    plt.axis("off")
-    plt.title(full_names[index], fontsize = 20)
-    
-plt.show()
  
                 def grey_color_func(word, font_size, position, orientation, random_state=None, **kwargs):
                     return("hsl(240,100%%, %d%%)" % np.random.randint(45,55))
