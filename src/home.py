@@ -135,11 +135,12 @@ def app():
                 st.write("Non-Flood Related")
             else:
                 st.write("Flood Related")         
-            st.write(testing)
+                
             value = prediction.loc[0][0]
             emoji_icon = emotions_emoji_dict[value]
             st.write("{}:{}".format(value,emoji_icon))
             st.write("Emotion Score:{:.0%}".format(np.max(probability.to_numpy())))
+            
             add_prediction_details(raw_text,value,np.max(probability.to_numpy()),datetime.now())
             
         with col3:
