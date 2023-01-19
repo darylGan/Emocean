@@ -24,7 +24,7 @@ def load_corpus():
 
 @st.cache(allow_output_mutation=True)
 def load_dtm():
-    data = pd.read_pickle("datasets/DSPEnglishTweetsDTMv2.pkl")
+    data = pd.read_pickle("datasets/DSPEnglishTweetsDTM.pkl")
     data = data.transpose()
     return data
 
@@ -107,11 +107,21 @@ def app():
                 title('Emotion Word Cloud',30)
 
                 sl = st.slider('Choose Number of Words',50,200)
+
+for index, emotion in enumerate(english_data.columns):
+    english_wc.generate(english_data_clean.Tweets[emotion])
+    
+    plt.subplot(3, 4, index+1)
+    plt.imshow(english_wc, interpolation="bilinear")
+    plt.axis("off")
+    plt.title(full_names[index], fontsize = 20)
+    
+plt.show()
  
                 def grey_color_func(word, font_size, position, orientation, random_state=None, **kwargs):
                     return("hsl(240,100%%, %d%%)" % np.random.randint(45,55))
 
-                wc = WordCloud(stopwords=stop_words, background_color="white", color_func = grey_color_func, max_font_size=150, random_state=42, max_words=sl, collocations=False)
+                wc = WordCloud(stopwords=stop_words, background_color="white", color_func=grey_color_func, max_font_size=150, random_state=42, max_words=sl, collocations=False)
 
                 plt.rcParams['figure.figsize'] = [20, 20]
 
