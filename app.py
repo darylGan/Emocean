@@ -24,7 +24,7 @@ def add_bg_from_url():
          f"""
          <style>
          .stApp {{
-             background-image: url("https://media.istockphoto.com/id/1389811180/vector/flood-in-town-natural-disaster-with-rain-storm.jpg?s=612x612&w=0&k=20&c=qEvkOWgbADBK3pioS3WbaF-KTj7-uqMp4nQtF6j7CDU=");
+             background-image: url("https://media.istockphoto.com/id/1154402461/photo/office-window-covered-with-rain-water-water-spray-on-window-after-rain-traffic-worker-stuck.jpg?s=612x612&w=0&k=20&c=MLB5Y3IgcmpIJwhs3Yv4fryYjTncUdJVRxZOUcA3ceo=");
              background-attachment: fixed;
              background-size: cover
          }}
