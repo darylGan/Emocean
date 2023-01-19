@@ -84,32 +84,6 @@ def get_prediction_proba(docx):
 #English Emotion Analyzer
 
 def app():
-    st.markdown(f'<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">', unsafe_allow_html=True)
-
-    st.markdown("""
-        <style>
-        blockquote.twitter-tweet {
-            display: inline-block;
-            font-family: "Helvetica Neue", Roboto, "Segoe UI", Calibri, sans-serif;
-            font-size: 12px;
-            font-weight: bold;
-            line-height: 16px;
-            border-color: #eee #ddd #bbb;
-            border-radius: 5px;
-            border-style: solid;
-            border-width: 1px;
-            box-shadow: 0 1px 3px rgb(0 0 0 / 20%);
-            margin: 10px 15%;
-            padding: 8px 16px 16px 16px;
-            max-width: 468px;
-            transition: transform 500ms ease;
-        }
-        .twitter-tweet:hover,
-        .twitter-tweet:focus-within {
-            transform: scale(1.025);
-        }
-        </style>""",unsafe_allow_html=True)
-
     col_1, col_2, col_3 = st.columns([1,8,1])
 
     with col_1:
