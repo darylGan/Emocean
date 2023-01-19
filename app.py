@@ -30,10 +30,11 @@ import streamlit.components.v1 as components
 from track_utils import create_emotionclf_table
 import utils.display as udisp
 
-from src import home, visualization, monitor, userManual, about
+from src import home, rumah, visualization, monitor, userManual, about
 
 MENU = {
     "Home" : home,
+    "Rumah" : rumah,
     "Explore" : visualization,
     "Monitor" : monitor,
     "User Manual" : userManual,
@@ -42,6 +43,8 @@ MENU = {
 
 def main():
     menu_data = [
+        {'icon': "bi bi-house-fill", 'label':"House"},
+        {'icon': "bi bi-house-fill", 'label':"Rumah"},
         {'icon': "bi bi-bar-chart-line-fill", 'label':"Explore"},
         {'icon': "bi bi-tv-fill",'label':"Monitor"},
         {'icon': "bi bi-file-earmark-text-fill", 'label':"User Manual"},
