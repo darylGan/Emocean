@@ -131,7 +131,7 @@ def app():
                     plt.subplot(4, 2, index+1)
                     plt.imshow(english_wc, interpolation="bilinear")
                     plt.axis("off")
-                    plt.title(full_names[index], fontsize = 40)
+                    plt.title(full_names[index], fontsize = 30)
 
                 st.pyplot()
 
