@@ -96,6 +96,7 @@ def app():
                 title('Distribution of the Number of Emotions per English Tweet',30)
 
                 fig = plt.figure(figsize=(20,10))
+                sns.set(font_scale=10)
                 sns.countplot(df.emotion_count, palette='gist_rainbow')
                 plt.xlabel("Number of Emotions")
                 plt.ylabel("Number of Tweets")
