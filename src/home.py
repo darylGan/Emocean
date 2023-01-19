@@ -8,10 +8,16 @@ from neattext.functions import clean_text
 import joblib
 from sklearn.feature_extraction import text
 
-def space(num_lines=1):
-    st.image("images/name.png")
-    for _ in range(num_lines):
-        st.write("")
+col1, col2, col3 = st.beta_columns([1,6,1])
+
+with col1:
+st.write("")
+
+with col2:
+st.image("images/name.png")
+
+with col3:
+st.write("")
 
 # Function
 pipe_lr = joblib.load(open("models/emotion_classifier_lr_model_22_Dec_2021.pkl","rb"))
