@@ -87,10 +87,13 @@ def app():
             space(2)
             if choiceSelection=="Emotion Distribution":
                 title('Distribution of the Number of Emotions per English Tweet',30)
-
-                bar_CC = px.bar(df['emotion_count'], x='Number of Emotions', y='Number of Tweets', color='Number of Emotions', color_discrete_sequence=px.colors.sequential.Plotly3)
-                bar_CC.update_layout(height=450)
-                st.plotly_chart(bar_CC,use_container_width=True)
+                
+                import seaborn as sns
+                fig = plt.figure(figsize=(10,5))
+                sns.countplot(df.emotion_count, palette='gist_rainbow')
+                plt.xlabel("Number of Emotions")
+                plt.ylabel("Number of Tweets")
+                st.pyplot(fig)
 
             elif choiceSelection=="Emotion Word Cloud":
                 #--------------------------WORD_CLOUD---------------------------
