@@ -5,6 +5,7 @@ import pandas as pd
 import numpy as np
 import neattext as nt
 from neattext.functions import clean_text
+from imblearn.pipeline import Pipeline, make_pipeline
 import joblib
 from sklearn.feature_extraction import text 
 
