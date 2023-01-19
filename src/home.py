@@ -117,7 +117,7 @@ def app():
 
         # Apply Prediction Funtion Here
         probability = get_prediction_proba(cleanDocx)
-        prediction['value'] = probability.idxmax(axis=1)
+        prediction['value'] = [probability.idxmax(axis=1)]
 
         with col2:
             st.success("Prediction")
