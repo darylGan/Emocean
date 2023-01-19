@@ -27,7 +27,7 @@ from src import home, dataVisualization, monitor, documentation, about
 
 MENU = {
     "Home" : home,
-    "Exploratory Data Analysis" : dataVisualization,
+    "Explore" : dataVisualization,
     "Monitor" : monitor,
     "Documentation" : documentation,
     "About" : about,
@@ -35,7 +35,7 @@ MENU = {
 
 def main():
     menu_data = [
-        {'icon': "bi bi-bar-chart-line-fill", 'label':"Exploratory Data Analysis"},
+        {'icon': "bi bi-bar-chart-line-fill", 'label':"Explore"},
         {'icon': "bi bi-tv-fill",'label':"Monitor"},
         {'icon': "bi bi-file-earmark-text-fill", 'label':"Documentation"},
         {'icon': "bi bi-info-circle-fill", 'label':"About"}, 
