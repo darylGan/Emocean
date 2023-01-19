@@ -130,7 +130,7 @@ def app():
             submit_text = st.form_submit_button(label='Analyze')
 
         if submit_text:
-             col1, col2, col3, col4 = st.columns([1,2,4,1])
+            col1, col2, col3, col4 = st.columns([1,2,4,1])
 
             # Prediction Funtions
             testing = predictFlood(cleanDocx)
