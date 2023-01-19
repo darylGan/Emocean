@@ -22,11 +22,11 @@ def get_prediction_proba(docx):
     results = pipe_lr.predict_proba([docx])
     return results
 
-add_stop_words = ['covid', 'long', 'vaccine', 'know', 'people', 'amp', 'time', 'need', 'like', 'year', 'term', 'risk', 'vaccinate', 'symptom','work']
-stop_words = text.ENGLISH_STOP_WORDS.union(add_stop_words)
+add_stop_words = ['you know','i mean','yo','dude','couldnt','cant','dont','doesnt','youve','im','ive','wasnt','mightnt','hadnt','hvnt','youre','wouldnt','shouldnt','arent','isnt','werent','youll','its','thats','know','people','amp','time','need','like','year','term','risk','work','gonna','gon na','u','na','sri','dm','tl','bc','cause','ya','w','taman','muda','shah','alam','hulu','langat']
+english_stop_words = text.ENGLISH_STOP_WORDS.union(add_stop_words)
 
-custom_stop_word_list = ['you know','i mean','yo','dude','couldnt','cant','dont','doesnt','youve',"im",'ive','wasnt','mightnt','hadnt','hvnt','youre','wouldnt','shouldnt','arent','isnt','werent','youll','its','thats', 'covid', 'long', 'vaccine', 'know', 'people', 'amp', 'time', 'need', 'like','year', 'term', 'risk', 'vaccinate', 'symptom', 'work', 'gonna', "gon na", "gon", "na"]
-stop_words = stop_words.union(custom_stop_word_list)
+custom_stop_word_list = ['flood', 'help', 'come', 'day', 'feel', 'let', 'love', 'stay', 'water', 'victim', 'make', 'think', 'god', 'want', 'guy', 'bad', 'pls', 'malaysia', 'today', 'tweet', 'open', 'life', 'really', 'say', 'safe', 'pray', 'rain']
+english_stop_words = english_stop_words.union(custom_stop_word_list)
 
 def cleantext(docx):
     docxFrame = nt.TextFrame(text=docx)
@@ -44,7 +44,7 @@ def cleantext(docx):
     
     cleanDocx = docxFrame.text
     cleanDocx = clean_text(cleanDocx, contractions=True, stopwords=True)
-    cleanDocx = ' '.join(term for term in cleanDocx.split() if term not in stop_words)
+    cleanDocx = ' '.join(term for term in cleanDocx.split() if term not in english_stop_words)
     # cleanDocx = clean_text_round2(cleanDocx)
     return cleanDocx
 
