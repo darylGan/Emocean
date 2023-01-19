@@ -113,6 +113,7 @@ def app():
                 english_data
                 
                 english_data_clean = pd.read_pickle("datasets/DSPEnglishTweetsCorpus.pkl")
+                english_data_clean.index = ['anger', 'anticipation', 'disgust', 'fear', 'joy', 'sadness', 'surprise', 'trust']
                 
                 sl = st.slider('Choose Number of Words',50,100)
                 
