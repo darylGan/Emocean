@@ -130,7 +130,8 @@ def app():
         prediction = pd.DataFrame(probability.idxmax(axis=1))
 
         with col2:
-            st.write(testing)
+            floodValue = testing.loc[0][0]
+            st.write(floodValue)
             st.success("Prediction")
             value = prediction.loc[0][0]
             emoji_icon = emotions_emoji_dict[value]
