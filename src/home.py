@@ -8,10 +8,8 @@ from neattext.functions import clean_text
 import joblib
 from sklearn.feature_extraction import text
 
-st.image("images/name.png")
-
 def space(num_lines=1):
-    """Adds empty lines to the Streamlit app."""
+    st.image("images/name.png")
     for _ in range(num_lines):
         st.write("")
 
