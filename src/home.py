@@ -11,7 +11,6 @@ from sklearn.feature_extraction import text
 # import altair as alt
 
 def space(num_lines=1):
-    """Adds empty lines to the Streamlit app."""
     for _ in range(num_lines):
         st.write("")
 
@@ -135,12 +134,7 @@ def app():
     #     st.markdown("""##### People show various emotions in daily communications. This emotion predictor analyses emotions in what people write online such as tweets. It will predict whether they are joy, fear, sadness, anger, analytical, confident and tentative.""")
     # with col4:
     #     st.write("")
-    
-    st.markdown('<h1 style="font-weight:10;font-size: 50px;font-family:Source Sans Pro, sans-serif;text-align:center;">Long Covid Emotion Analyzer</h1>',unsafe_allow_html=True)
-    space(2)
-    # Long Covid Emotion Analyzer
-    # space(1)
-    #st.write("***")
+
     col_1, col_2, col_3 = st.columns([1,8,1])
 
     with col_1:
@@ -148,6 +142,8 @@ def app():
     
     with col_2:
         st.image("images/name.png")
+        st.markdown('<h1 style="font-weight:10;font-size: 50px;font-family:Source Sans Pro, sans-serif;text-align:center;">Long Covid Emotion Analyzer</h1>',unsafe_allow_html=True)
+        space(2)
         st.subheader("Emotion Analyzer In Text")
         space(1)
         st.markdown("**Instructions:** Type in your text")
