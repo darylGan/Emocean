@@ -180,8 +180,4 @@ def app():
                 bar_C3.update_traces(textposition="outside", cliponaxis=False)
                 bar_C3.update_yaxes(dtick=1, automargin=True)
 
-                st.plotly_chart(bar_C3,use_container_width=True) 
-        
-        with col_4:
-            st.write("")
-            space(2)
+                st.plotly_chart(bar_C3,use_container_width=True)     
