@@ -54,7 +54,7 @@ y_emotion_train = train[['anger', 'anticipation', 'disgust', 'fear', 'joy', 'sad
 X_emotion_test = test['Tweets']
 y_emotion_test = test[['anger', 'anticipation', 'disgust', 'fear', 'joy', 'sadness', 'surprise', 'trust']]
 
-eng_emotion_model = joblib.load(open("models/english_emotion_rf.pkl","rb"))
+eng_emotion_model = joblib.load("models/english_emotion_rf.pkl","r")
 
 def get_prediction_proba(docx):
     emotion = ['anger', 'anticipation', 'disgust', 'fear', 'joy', 'sadness', 'surprise', 'trust']
