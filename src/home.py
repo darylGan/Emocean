@@ -135,7 +135,7 @@ def app():
         space(1)
         st.markdown("**Arahan:** Masukkan Teks")
 
-        with st.form(key='emotion_form'):
+        with st.form(key='form_emosi'):
             raw_text = st.text_area('Taip Di Sini: -',"")
             cleanDocx = cleantext(raw_text)
             submit_text = st.form_submit_button(label='Menganalisis')
