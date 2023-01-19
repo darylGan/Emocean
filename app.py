@@ -1,7 +1,7 @@
+import streamlit as st
 import hydralit_components as hc
 import datetime
 
-import streamlit as st
 from PIL import Image
 img = Image.open("images/logo.png")
 st.set_page_config(
@@ -23,28 +23,33 @@ import streamlit.components.v1 as components
 from track_utils import create_emotionclf_table
 import utils.display as udisp
 
-from src import home, dataVisualization, monitor, documentation, about
+from src import home, visualization, monitor, userManual, about
 
 MENU = {
     "Home" : home,
-    "Documentation" : documentation,
+    "Explore" : visualization,
+    "Monitor" : monitor,
+    "User Manual" : userManual,
     "About" : about,
 }
 
 def main():
     menu_data = [
-        {'icon': "bi bi-file-earmark-text-fill", 'label':"Documentation"},
+        {'icon': "bi bi-bar-chart-line-fill", 'label':"Explore"},
+        {'icon': "bi bi-tv-fill",'label':"Monitor"},
+        {'icon': "bi bi-file-earmark-text-fill", 'label':"User Manual"},
         {'icon': "bi bi-info-circle-fill", 'label':"About"}, 
     ]
 
     over_theme = {'txc_inactive':'#000000','menu_background':'#A7C7E7','txc_active':'#FFFFFF','option_active':'#000080'}
+    
     menu_id = hc.nav_bar(
         menu_definition=menu_data,
         override_theme=over_theme,
         home_name='Home',
-        hide_streamlit_markers=False, #will show the st hamburger as well as the navbar now!
-        sticky_nav=True, #at the top or not
-        sticky_mode='pinned', #jumpy or not-jumpy, but sticky or pinned
+        hide_streamlit_markers=False,
+        sticky_nav=True,
+        sticky_mode='pinned',
     )
     
     menu = MENU[menu_id]
