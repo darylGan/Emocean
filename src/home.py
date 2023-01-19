@@ -132,9 +132,9 @@ def app():
         with col2:
             st.success("Prediction")
             if testing == 0:
-                st.write("Non-Flood Related)
+                st.write("Non-Flood Related")
             else:
-                st.write("Flood Related)         
+                st.write("Flood Related")         
             st.write(testing)
             value = prediction.loc[0][0]
             emoji_icon = emotions_emoji_dict[value]
