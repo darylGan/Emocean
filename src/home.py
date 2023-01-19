@@ -89,7 +89,7 @@ def app():
         space(2)
         st.subheader("Text Sentiment & Emotion Analyzer")
         space(1)
-        st.markdown("**Instructions:** Enter Text'")
+        st.markdown("**Instructions:** Enter Text")
 
         with st.form(key='emotion_form'):
             raw_text = st.text_area('Type Here: -',"")
