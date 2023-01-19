@@ -104,7 +104,7 @@ def app():
                 st.pyplot(fig)
 
             elif choiceSelection=="Emotion Word Cloud":
-                title('Emotion Word Cloud',30)
+                title('English Emotion Word Cloud',30)
                 
                 sl = st.slider('Choose Number of Words',10,100)
                 
