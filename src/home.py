@@ -223,14 +223,14 @@ def app():
         #Malay
 
         if submit_malay_text:
-            col1, col2, col3, col4 = st.columns([1,2,4,1])
+            col__1, col__2, col__3, col__4 = st.columns([1,2,4,1])
 
             testingMly = predictFloodMly(cleanDocxMly)
             testingSentimentMly = predictSentimentMly(cleanDocxMly)
             probabilityMly = get_prediction_probaMly(cleanDocxMly)
             predictionMly = pd.DataFrame(probabilityMly.idxmax(axis=1))
 
-            with col2:
+            with col__2:
                 st.success("Ramalan")
                 if testingMly == 0:
                     st.write("Tidak Berkaitan Banjir")
@@ -246,7 +246,7 @@ def app():
             
                 add_prediction_details(raw_textMly,valueMly,np.max(probabilityMly.to_numpy()),datetime.now())
             
-            with col3:
+            with col__3:
                 st.success("Skor Emosi")
                 proba_df = probability
                 porba_df_clean = proba_df.T.reset_index()
