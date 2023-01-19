@@ -48,7 +48,7 @@ def main():
         {'icon': "bi bi-info-circle-fill", 'label':"About"}, 
     ]
 
-    over_theme = {'txc_inactive':'#000000','menu_background':'#2B65EC','txc_active':'#FFFFFF','option_active':'#000080'}
+    over_theme = {'txc_inactive':'#000000','menu_background':'#005744','txc_active':'#FFFFFF','option_active':'#000080'}
     
     menu_id = hc.nav_bar(
         menu_definition=menu_data,
