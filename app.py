@@ -19,8 +19,7 @@ hide_streamlit_style = """
 """
 st.markdown(hide_streamlit_style, unsafe_allow_html=True)
 
-def add_bg_from_url():
-    st.markdown(
+st.markdown(
          f"""
          <style>
          .stApp {{
@@ -31,8 +30,6 @@ def add_bg_from_url():
          """,
          unsafe_allow_html=True
      )
-
-add_bg_from_url()
 
 import streamlit.components.v1 as components
 from track_utils import create_emotionclf_table
