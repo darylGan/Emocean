@@ -121,6 +121,7 @@ def app():
 
         with col2:
             st.success("Prediction")
+            st.write(prediction)
             value = prediction.loc[0][0]
             st.write(value)
             emoji_icon = emotions_emoji_dict[value]
