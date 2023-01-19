@@ -24,7 +24,7 @@ def load_corpus():
 
 @st.cache(allow_output_mutation=True)
 def load_dtm():
-    data = pd.read_pickle("datasets/DSPEnglishTweetsDTM.pkl")
+    data = pd.read_pickle("datasets/DSPEnglishTweetsDTMv2.pkl")
     return data
 
 @st.cache(persist=True,suppress_st_warning=True)
