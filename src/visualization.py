@@ -105,6 +105,7 @@ def app():
 
             elif choiceSelection=="Emotion Word Cloud":
                 st.write(dtm)
+                st.write(corpus)
                 title('Emotion Word Cloud',30)
 
                 sl = st.slider('Choose Number of Words',50,200)
