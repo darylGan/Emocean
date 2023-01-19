@@ -87,7 +87,7 @@ st.set_option('deprecation.showPyplotGlobalUse', False)
 
 def app():
     st.markdown(f'<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">', unsafe_allow_html=True)
-
+    st.image("images/name.png")
     st.markdown("""
         <style>
         blockquote.twitter-tweet {
@@ -144,8 +144,6 @@ def app():
 
     with col_1:
         st.write()
-    
-    st.image("images/name.png")
     
     with col_2:
         st.subheader("Text Emotion Analyzer")
