@@ -73,7 +73,7 @@ def app():
 
     The target users include:
     + General Public who are concerned about floods
-    + Emergency Response Non-Profit Organizations (Mercy Malaysia; CREST Malaysia; Malaysian Red Crescent Society) 
+    + Non-Profit Emergency Response Organizations (Mercy Malaysia; CREST Malaysia; Malaysian Red Crescent Society) 
     + Governmental Bodies (NADMA; Ministry Of Natural Resources, Environment And Climate Change)
     
     <br/>
