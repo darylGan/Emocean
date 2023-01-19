@@ -123,7 +123,7 @@ def app():
             st.success("Prediction")
             st.write(probability)
             st.write(prediction)
-            emoji_icon = emotions_emoji_dict[[prediction]]
+            emoji_icon = emotions_emoji_dict[prediction.values[]]
             st.write("{}:{}".format(prediction,emoji_icon))
             st.write("Score:{:.0%}".format(np.max(probability)))
         
