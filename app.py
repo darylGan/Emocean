@@ -34,7 +34,7 @@ from src import home, rumah, visualization, monitor, userManual, about
 
 MENU = {
     "Home" : home,
-    "Malay" : rumah,
+    "Versi Melayu" : rumah,
     "Explore" : visualization,
     "Analyzer Log" : monitor,
     "User Manual" : userManual,
@@ -43,7 +43,7 @@ MENU = {
 
 def main():
     menu_data = [
-        {'icon': "bi bi-translate", 'label':"Malay"},
+        {'icon': "bi bi-translate", 'label':"Versi Melayu"},
         {'icon': "bi bi-bar-chart-line-fill", 'label':"Explore"},
         {'icon': "bi bi-clock-history",'label':"Analyzer Log"},
         {'icon': "bi bi-person-circle", 'label':"User Manual"},
