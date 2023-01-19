@@ -118,7 +118,7 @@ def app():
                 full_names = emotion = ['anger', 'anticipation', 'disgust', 'fear', 'joy', 'sadness', 'surprise', 'trust']
 
                 for index, emotion in enumerate(dtm.columns):
-                    wc.generate(corpus.Tweets[full_names])
+                    wc.generate(corpus.Tweets[emotion])
 
                     plt.subplot(4, 2, index+1)
                     plt.imshow(wc, interpolation="bilinear")
