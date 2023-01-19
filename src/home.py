@@ -16,7 +16,6 @@ st.set_option('deprecation.showPyplotGlobalUse', False)
 
 add_stop_words = ['you know','i mean','yo','dude','couldnt','cant','dont','doesnt','youve','im','ive','wasnt','mightnt','hadnt','hvnt','youre','wouldnt','shouldnt','arent','isnt','werent','youll','its','thats','know','people','amp','time','need','like','year','term','risk','work','gonna','gon na','u','na','sri','dm','tl','bc','cause','ya','w','taman','muda','shah','alam','hulu','langat']
 english_stop_words = text.ENGLISH_STOP_WORDS.union(add_stop_words)
-
 custom_stop_word_list = ['flood', 'help', 'come', 'day', 'feel', 'let', 'love', 'stay', 'water', 'victim', 'make', 'think', 'god', 'want', 'guy', 'bad', 'pls', 'malaysia', 'today', 'tweet', 'open', 'life', 'really', 'say', 'safe', 'pray', 'rain']
 english_stop_words = english_stop_words.union(custom_stop_word_list)
 
