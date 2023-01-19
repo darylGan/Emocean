@@ -58,7 +58,7 @@ emotions_emoji_dict = {"anger":"😡","anticipation":"🤔","disgust":"🤢","fe
 
 #Malay Emotion Analyzer
 dfMly = pd.read_pickle("datasets/DSPMalayTweetsCleanedV2.pkl")
-
+from sklearn.model_selection import train_test_split
 dfMly_subset = dfMly[dfMly['neutral'] != 1]
 dfMly_train, dfMly_test = train_test_split(dfMly_subset, shuffle=True, test_size=0.2, random_state=42)
 Mly_X_emotion_train = dfMly_train['Tweets']
