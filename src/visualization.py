@@ -108,7 +108,7 @@ def app():
                 st.write(corpus)
                 title('Emotion Word Cloud',30)
 
-                sl = st.slider('Choose Number of Words',50,70)
+                sl = st.slider('Choose Number of Words',50,51)
  
                 def grey_color_func(word, font_size, position, orientation, random_state=None, **kwargs):
                     return("hsl(240,100%%, %d%%)" % np.random.randint(45,55))
