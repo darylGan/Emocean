@@ -6,7 +6,9 @@ import numpy as np
 import neattext as nt
 from neattext.functions import clean_text
 import joblib
-from sklearn.feature_extraction import text
+from sklearn.feature_extraction import text 
+# from PIL import Image
+# import altair as alt
 
 def space(num_lines=1):
     """Adds empty lines to the Streamlit app."""
@@ -106,7 +108,6 @@ def app():
             max-width: 468px;
             transition: transform 500ms ease;
             
-
         }
         .twitter-tweet:hover,
         .twitter-tweet:focus-within {
@@ -135,9 +136,9 @@ def app():
     # with col4:
     #     st.write("")
     
-    st.markdown('<h1 style="font-weight:10;font-size: 50px;font-family:Source Sans Pro, sans-serif;text-align:center;">Sentiment & Emotion Flood Detection through Twitter</h1>',unsafe_allow_html=True)
+    st.markdown('<h1 style="font-weight:10;font-size: 50px;font-family:Source Sans Pro, sans-serif;text-align:center;">Long Covid Emotion Analyzer</h1>',unsafe_allow_html=True)
     space(2)
-    # Sentiment & Emotion Flood Detection through Twitter
+    # Long Covid Emotion Analyzer
     # space(1)
     #st.write("***")
     col_1, col_2, col_3 = st.columns([1,8,1])
@@ -146,12 +147,12 @@ def app():
         st.write()
     
     with col_2:
-        st.subheader("Text Emotion Analyzer")
+        st.subheader("Emotion Analyzer In Text")
         space(1)
-        st.markdown("**Instructions:** Type In Some Text")
+        st.markdown("**Instructions:** Type in your text")
 
         with st.form(key='emotion_form'):
-            raw_text = st.text_area('Type Here',"Replace These Words")
+            raw_text = st.text_area('Type Here',"Long Covid brings lots of negative and bad effect to the patient. I feel sorry to those who are suffering from Long Covid symptoms")
             cleanDocx = cleantext(raw_text)
             submit_text = st.form_submit_button(label='Analyze')
 
@@ -199,4 +200,3 @@ def app():
     else:
         with col_2: 
             st.write("*Analysis of text will appear here after you click the 'Analyze' button*")
-    
