@@ -19,7 +19,8 @@ def app():
         <h2 style="font-weight:bolder;font-size:20px;color:#216fdb;text-align:left;">Malaysia’s Floods of December 2021: Can Future Disasters be Avoided?</h2> 
         
         """, unsafe_allow_html=True)
-        st.markdown("""The floods of December 2021 in Malaysia left almost 50 dead, required the evacuation of about 400,000 people, and resulted in an overall estimate of RM6.1 billion in financial losses. Unprecedented volumes of rainfall left areas on the west coast of Peninsular Malaysia under almost four meters of water and turned roads into rivers.
+        st.markdown("""The floods of December 2021 in Malaysia left almost 50 dead, required the evacuation of about 400,000 people, and resulted in an overall estimate of RM6.1 billion in financial losses.
+        Unprecedented volumes of rainfall left areas on the west coast of Peninsular Malaysia under almost four meters of water and turned roads into rivers.
         """)
  
     with home_col_3:
