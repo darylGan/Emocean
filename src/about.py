@@ -96,6 +96,5 @@ def app():
     
     3rd year Bachelor of Computer Science (Data Science) student at University of Malaya
     <br/>
-    Made in [Streamlit](https://www.streamlit.io/), by Daryl Gan | [GitHub](https://github.com/darylGan) | [LinkedIn](https://www.linkedin.com/in/daryl-gan-/)
-    2022/2023
+    Made in [Streamlit](https://www.streamlit.io/), by Daryl Gan | [GitHub](https://github.com/darylGan) | [LinkedIn](https://www.linkedin.com/in/daryl-gan-/) | 2022/2023
     """, unsafe_allow_html=True)
