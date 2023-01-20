@@ -1,6 +1,6 @@
 # Emocean
 ## Sentiment &amp; Emotion-based Flood Detection through Twitter
-Link to the dashboard: https://emocean.streamlit.app/
+Link to the dashboard: [Emocean](https://emocean.streamlit.app/)
 
 ## About the Dashboard
 ### Malaysia’s Floods of December 2021: Can Future Disasters be Avoided?
